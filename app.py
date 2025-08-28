@@ -5,20 +5,23 @@ from embedchain import App
 from embedchain.config import AppConfig
 from embedchain.vectordb.faiss import FaissDB  # Explicitly import FAISS
 import logging
+import sys
 
 # Set up logging for debugging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# Ensure temporary directory is used for FAISS index
+# Prevent ChromaDB from being imported by overriding the module
+if "chromadb" in sys.modules:
+    del sys.modules["chromadb"]
 os.environ["EMBEDCHAIN_DB_DIR"] = "/tmp/embedchain_db"
 
 @st.cache_resource
 def get_embedchain_app():
     try:
         api_key = st.secrets["GROQ_API_KEY"]
-        config = {
-            "llm": {
+        config = AppConfig(
+            llm={
                 "provider": "groq",
                 "config": {
                     "model": "mixtral-8x7b-32768",
@@ -26,22 +29,25 @@ def get_embedchain_app():
                     "stream": True,
                 },
             },
-            "vectordb": {
+            vectordb={
                 "provider": "faiss",
                 "config": {
-                    "index_dir": "/tmp/embedchain_db",  # Explicitly set FAISS index directory
-                    "dimension": 1536,  # Adjust based on your embedding model (e.g., OpenAI embeddings)
+                    "index_dir": "/tmp/embedchain_db",
+                    "dimension": 1536,  # Adjust based on your embedding model
                 },
             },
-            "embedder": {
-                "provider": "openai",  # Or another embedder compatible with FAISS
+            embedder={
+                "provider": "openai",  # Ensure compatibility with FAISS
                 "config": {
-                    "model": "text-embedding-ada-002",  # Ensure compatibility with FAISS dimension
+                    "model": "text-embedding-ada-002",
                 },
             },
-        }
+        )
         logger.info("Initializing Embedchain app with FAISS backend")
-        app = App.from_config(config=config)
+        app = App(config=config)
+        # Verify that FAISS is being used
+        if not isinstance(app.vectordb, FaissDB):
+            raise RuntimeError("FAISS vector database not initialized correctly.")
         return app
     except KeyError as e:
         st.error("GROQ_API_KEY not found in Streamlit secrets. Please set it in the Streamlit Cloud dashboard.")
@@ -73,7 +79,6 @@ if uploaded_files and st.button("Ingest Documents"):
     with st.spinner("Ingesting..."):
         for f in uploaded_files:
             try:
-                # Use /tmp for temporary files
                 with tempfile.NamedTemporaryFile(
                     dir="/tmp", delete=False, suffix=f".{f.name.split('.')[-1]}"
                 ) as tmp:
@@ -82,7 +87,7 @@ if uploaded_files and st.button("Ingest Documents"):
                 logger.info(f"Ingesting file: {f.name}")
                 app.add(tmp_path)
                 st.success(f"Ingested {f.name}")
-                os.unlink(tmp_path)  # Clean up temporary file
+                os.unlink(tmp_path)
             except Exception as e:
                 st.error(f"Failed to ingest {f.name}: {e}")
                 logger.error(f"Ingestion error for {f.name}: {e}")
