@@ -65,8 +65,8 @@ else:
             with st.spinner("Processing documents and building index..."):
                 vectorstore = build_vector_store(tuple(uploaded_files))  # Tuple for cache hash
             
-            # Set up LLM
-            llm = ChatGroq(groq_api_key=groq_api_key, model="mixtral-8x7b-32768")
+            # Set up LLM with a supported model
+            llm = ChatGroq(groq_api_key=groq_api_key, model="llama3-70b-8192")  # Replace with a supported model
             
             # Prompt template
             system_prompt = (
