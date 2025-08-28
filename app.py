@@ -1,3 +1,9 @@
+import sys
+
+# Patch for ChromaDB's SQLite requirement on Streamlit Cloud
+__import__('pysqlite3')
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 import os
 import tempfile
 import streamlit as st
@@ -5,17 +11,14 @@ from embedchain import App
 from embedchain.config import AppConfig
 from embedchain.vectordb.faiss import FaissDB
 import logging
-import sys
 
 # Set up logging for debugging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# Prevent ChromaDB from interfering by overriding the module
-if "chromadb" in sys.modules:
-    del sys.modules["chromadb"]
+# Ensure temporary directory for FAISS index
 os.environ["EMBEDCHAIN_DB_DIR"] = "/tmp/embedchain_db"
-os.environ["EMBEDCHAIN_VECTOR_DB"] = "faiss"  # Force FAISS as the vector DB
+os.environ["EMBEDCHAIN_VECTOR_DB"] = "faiss"  # Force FAISS
 
 @st.cache_resource
 def get_embedchain_app():
@@ -34,7 +37,7 @@ def get_embedchain_app():
                 "provider": "faiss",
                 "config": {
                     "index_dir": "/tmp/embedchain_db",
-                    "dimension": 1536,
+                    "dimension": 1536,  # Adjust if needed for your embedder
                 },
             },
             embedder={
