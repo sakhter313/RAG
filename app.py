@@ -3,28 +3,28 @@ import tempfile
 import streamlit as st
 from embedchain import App
 
-# Function to get Embedchain app with Groq config and FAISS backend
+# Embedchain app configured with Groq LLM and FAISS vector DB backend (no ChromaDB, no SQLite dependency)
 @st.cache_resource
 def get_embedchain_app():
     try:
-        api_key = st.secrets["GROQ_API_KEY"]  # Groq API key from Streamlit secrets
+        api_key = st.secrets["GROQ_API_KEY"]
         config = {
             "llm": {
                 "provider": "groq",
                 "config": {
                     "model": "mixtral-8x7b-32768",
                     "api_key": api_key,
-                    "stream": True
-                }
+                    "stream": True,
+                },
             },
             "vectordb": {
-                "provider": "faiss",  # Use FAISS to avoid SQLite/ChromaDB issues
-                "config": {}
-            }
+                "provider": "faiss",  # Use FAISS, no ChromaDB
+                "config": {},
+            },
         }
         return App.from_config(config=config)
     except KeyError:
-        st.error("GROQ_API_KEY not found in Streamlit secrets. Please configure it in the Streamlit Cloud dashboard.")
+        st.error("GROQ_API_KEY not found in Streamlit secrets. Please add it in the Streamlit Cloud settings.")
         st.stop()
 
 st.title("📄 Document LLM Bot")
@@ -32,15 +32,15 @@ st.caption("Upload documents and chat with their content! Powered by Embedchain 
 
 with st.sidebar:
     st.markdown("[Get a Groq API Key](https://console.groq.com/keys)")
-    st.markdown("[View Source Code](https://github.com/embedchain/embedchain) (inspired by Embedchain examples)")
-    st.markdown("**Note**: Ensure your Groq API key is set in Streamlit Cloud secrets under `GROQ_API_KEY`.")
+    st.markdown("[View Source Code](https://github.com/embedchain/embedchain)")
+    st.markdown("**Note:** Set `GROQ_API_KEY` in Streamlit Cloud secrets.")
 
 app = get_embedchain_app()
 
 uploaded_files = st.file_uploader(
     "Upload Documents",
     type=["pdf", "docx", "txt", "csv", "json", "md", "mdx"],
-    accept_multiple_files=True
+    accept_multiple_files=True,
 )
 
 if uploaded_files and st.button("Ingest Documents"):
@@ -59,7 +59,9 @@ if uploaded_files and st.button("Ingest Documents"):
                 st.error(f"Error ingesting {uploaded_file.name}: {str(e)}")
 
 if "messages" not in st.session_state:
-    st.session_state.messages = [{"role": "assistant", "content": "Hi! Upload documents and ask me questions about them."}]
+    st.session_state.messages = [
+        {"role": "assistant", "content": "Hi! Upload documents and ask me questions about them."}
+    ]
 
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
@@ -69,7 +71,6 @@ if prompt := st.chat_input("Ask a question about the documents..."):
     with st.chat_message("user"):
         st.markdown(prompt)
     st.session_state.messages.append({"role": "user", "content": prompt})
-
     with st.chat_message("assistant"):
         with st.spinner("Thinking..."):
             try:
