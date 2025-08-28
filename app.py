@@ -31,27 +31,42 @@ os.environ["EMBEDCHAIN_VECTOR_DB"] = "faiss"  # Force FAISS
 def get_embedchain_app():
     try:
         api_key = st.secrets["GROQ_API_KEY"]
-        # Flatten the config into keyword arguments
-        config = {
-            "llm_provider": "groq",
-            "llm_config": {
+        # Initialize App with minimal config
+        logger.info("Initializing Embedchain app")
+        app = App()  # Basic initialization without config args
+
+        # Configure LLM
+        app.llm = {
+            "provider": "groq",
+            "config": {
                 "model": "mixtral-8x7b-32768",
                 "api_key": api_key,
                 "stream": True,
-            },
-            "vectordb_provider": "faiss",
-            "vectordb_config": {
+            }
+        }
+        logger.info("Configured Groq LLM")
+
+        # Configure Vector DB (FAISS)
+        app.vectordb = {
+            "provider": "faiss",
+            "config": {
                 "index_dir": "/tmp/embedchain_db",
                 "dimension": 1536,
-            },
-            "embedder_provider": "openai",
-            "embedder_config": {
-                "model": "text-embedding-ada-002",
-            },
+            }
         }
-        logger.info("Initializing Embedchain app with FAISS backend")
-        app = App(**config)  # Pass as keyword arguments
-        if not isinstance(app.vectordb, FAISS):
+        logger.info("Configured FAISS vector database")
+
+        # Configure Embedder
+        app.embedder = {
+            "provider": "openai",
+            "config": {
+                "model": "text-embedding-ada-002",
+            }
+        }
+        logger.info("Configured OpenAI embedder")
+
+        # Validate FAISS usage
+        if not isinstance(app.vectordb.get("provider", "").lower() == "faiss" and hasattr(app, 'vectordb_instance') and isinstance(app.vectordb_instance, FAISS)):
             raise RuntimeError("FAISS vector database not initialized correctly. Check configuration.")
         return app
     except KeyError as e:
