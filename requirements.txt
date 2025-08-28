@@ -1,7 +1,9 @@
 streamlit==1.38.0
-embedchain==0.1.121  # Use the latest stable version
-faiss-cpu==1.7.4     # Explicitly include FAISS
-groq==0.9.0          # Groq SDK
+embedchain==0.1.121
+faiss-cpu==1.7.4
+groq==0.9.0
 python-dotenv==1.0.1
-pypdf==4.3.1         # For PDF handling
-docx2txt==0.8        # For DOCX handling
+pypdf==4.3.1
+docx2txt==0.8
+# Explicitly exclude chromadb to avoid conflicts
+chromadb==0  # This prevents chromadb from being installed
