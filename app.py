@@ -9,7 +9,7 @@ import tempfile
 import streamlit as st
 from embedchain import App
 from embedchain.config import AppConfig
-from embedchain.vectordb.faiss import FaissDB
+from langchain_community.vectorstores.faiss import FAISS  # Use LangChain's FAISS for validation
 import logging
 
 # Set up logging for debugging
@@ -49,8 +49,8 @@ def get_embedchain_app():
         )
         logger.info("Initializing Embedchain app with FAISS backend")
         app = App(config=config)
-        if not isinstance(app.vectordb, FaissDB):
-            raise RuntimeError("FAISS vector database not initialized correctly. Check if ChromaDB is interfering.")
+        if not isinstance(app.vectordb, FAISS):
+            raise RuntimeError("FAISS vector database not initialized correctly. Check configuration.")
         return app
     except KeyError as e:
         st.error("GROQ_API_KEY not found in Streamlit secrets. Please set it in the Streamlit Cloud dashboard.")
