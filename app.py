@@ -7,14 +7,22 @@ sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 import os
 import tempfile
 import streamlit as st
-from embedchain import App
-from embedchain.config import AppConfig
-from langchain_community.vectorstores.faiss import FAISS  # Use LangChain's FAISS for validation
 import logging
 
 # Set up logging for debugging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
+try:
+    from langchain_community.vectorstores.faiss import FAISS
+    logger.info("Successfully imported langchain_community.vectorstores.faiss")
+except ImportError as e:
+    logger.error(f"Failed to import langchain_community.vectorstores.faiss: {e}")
+    st.error(f"Import error: Failed to load langchain_community.vectorstores.faiss. Check logs for details. Error: {e}")
+    st.stop()
+
+from embedchain import App
+from embedchain.config import AppConfig
 
 # Ensure temporary directory for FAISS index
 os.environ["EMBEDCHAIN_DB_DIR"] = "/tmp/embedchain_db"
