@@ -2,4 +2,5 @@ mdurl==0.1.2
 pygments==2.19.2
 rich==14.1.0
 streamlit>=1.38.0,<2.0.0
-embedchain>=0.0.92  # Allow a range, or test a specific version like 0.1.119
+embedchain>=0.0.92
+tiktoken==0.7.0  # Check PyPI for latest prebuilt version
