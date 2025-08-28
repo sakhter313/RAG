@@ -1,52 +1,55 @@
 
 [     UTC     ] Logs for ragaimodel.streamlit.app/
 ────────────────────────────────────────────────────────────────────────────────────────
-[15:06:15] 🖥 Provisioning machine...
-[15:06:15] 🎛 Preparing system...
-[15:06:15] ⛓ Spinning up manager process...
-[15:06:15] 🚀 Starting up repository: 'rag', branch: 'main', main module: 'app.py'
-[15:06:15] 🐙 Cloning repository...
-[15:06:16] 🐙 Cloning into '/mount/src/rag'...
+[15:16:35] 🖥 Provisioning machine...
+[15:16:35] 🎛 Preparing system...
+[15:16:35] ⛓ Spinning up manager process...
+[15:16:39] 🚀 Starting up repository: 'rag', branch: 'main', main module: 'app.py'
+[15:16:39] 🐙 Cloning repository...
+[15:16:41] 🐙 Cloning into '/mount/src/rag'...
 
-[15:06:17] 🐙 Cloned repository!
-[15:06:17] 🐙 Pulling code changes from Github...
-[15:06:17] 📦 Processing dependencies...
+[15:16:41] 🐙 Cloned repository!
+[15:16:41] 🐙 Pulling code changes from Github...
+[15:16:42] 📦 Processing dependencies...
 
 ──────────────────────────────────────── uv ───────────────────────────────────────────
 
 Using uv pip install.
-Using Python 3.10.18 environment at /home/adminuser/venv[2025-08-28 15:06:18.244041] 
-Resolved 145 packages in 5.67s
-Prepared [2025-08-28 15:06:44.617193] 145 packages[2025-08-28 15:06:44.617463]  [2025-08-28 15:06:44.617607] in 20.68s[2025-08-28 15:06:44.617859] 
-Installed 145 packages in 932ms
+Using Python 3.10.18 environment at /home/adminuser/venv
+Resolved [2025-08-28 15:16:51.144170] 166 packages[2025-08-28 15:16:51.144691]  [2025-08-28 15:16:51.145098] in 8.10s
+Prepared [2025-08-28 15:17:18.041260] 166 packages[2025-08-28 15:17:18.042087]  [2025-08-28 15:17:18.042462] in 26.86s[2025-08-28 15:17:18.042912] 
+Installed 166 packages in 2.28s
  + aiohappyeyeballs==2.6.1
  + aiohttp==3.12.15
  + aiosignal==1.4.0
- + aiostream==0.5.2
+ + alembic==1.16.5
  + altair==5.5.0
  + annotated-types==0.7.0
- + anyio==3.7.1
+ + anyio==4.10.0
  + asgiref==3.9.1
  + async-timeout==4.0.3
  + attrs==25.3.0
  + backoff==2.2.1
  + bcrypt==4.3.0
+ + beautifulsoup4==4.13.5
  + blinker==1.9.0
  + build==1.3.0
  + cachetools==6.2.0
  + certifi==2025.8.3
  + charset-normalizer==3.4.3
- + chroma-hnswlib==0.7.3
- + chromadb==0.4.24
+ + chroma-hnswlib==0.7.6
+ + chromadb==0.5.23
  + click==8.2.1
+ + cohere==5.17.0
  + coloredlogs==15.0.1
- + dataclasses-json==0.5.14
- + deprecated==1.2.18
+ + dataclasses-json==0.6.7
  + distro==1.9.0
  + durationpy==0.10
- + embedchain==0.1.34
+ + embedchain==0.1.128
  + exceptiongroup==1.3.0
+ + faiss-cpu==1.12.0
  + fastapi==0.116.1
+ + fastavro==1.12.0
  + filelock==3.19.1
  + flatbuffers==25.2.10
  + frozenlist==1.7.0
@@ -55,42 +58,51 @@ Installed 145 packages in 932ms
  + gitpython==3.1.45
  + google-auth==1.6.3
  + googleapis-common-protos==1.70.0
+ + gptcache==0.1.44
  + greenlet==3.2.4
  + grpcio==1.74.0
  + h11==0.16.0
+ + h2==4.3.0
  + hf-xet==1.1.9
+ + hpack==4.1.0
  + httpcore==1.0.9
  + httptools==0.6.4
  + httpx==0.28.1
+ + httpx-sse==0.4.0
  + huggingface-hub==0.34.4
  + humanfriendly==10.0
+ + hyperframe==6.1.0
  + idna==3.10
  + importlib-metadata==8.7.0
  + importlib-resources==6.5.2
  + jinja2==3.1.6
  + jiter==0.10.0
- + joblib==1.5.2
  + jsonpatch==1.33
  + jsonpointer==3.0.0
  + jsonschema==4.25.1
  + jsonschema-specifications==2025.4.1
  + kubernetes==33.1.0
- + langchain==0.0.336
- + langsmith==0.0.92
- + llama-index==0.8.69.post2
+ + langchain==0.3.27
+ + langchain-cohere==0.3.5
+ + langchain-community==0.3.29
+ + langchain-core==0.3.75
+ + langchain-experimental==0.3.4
+ + langchain-openai==0.2.14
+ + langchain-text-splitters==0.3.9
+ + langsmith==0.3.45
+ + mako==1.3.10
  + markdown-it-py==4.0.0
  + markupsafe==3.0.2
  + marshmallow==3.26.1
  + mdurl==0.1.2
+ + mem0ai==0.1.115
  + mmh3==5.2.0
  + monotonic==1.6
  + mpmath==1.3.0
  + multidict==6.6.4
  + mypy-extensions==1.1.0
  + narwhals==2.2.0
- + nest-asyncio==1.6.0
- + nltk==3.9.1
- + numpy==1.26.4
+ + numpy==2.2.6
  + oauthlib==3.3.1
  + onnxruntime==1.22.1
  + openai==1.102.0
@@ -109,28 +121,33 @@ Installed 145 packages in 932ms
  + packaging==25.0
  + pandas==2.3.2
  + pillow==11.3.0
+ + portalocker==3.2.0
  + posthog==3.25.0
  + propcache==0.3.2
  + protobuf==6.32.0
- + pulsar-client==3.8.0
  + pyarrow==21.0.0
  + pyasn1==0.6.1
  + pyasn1-modules==0.4.2
  + pydantic==2.11.7
  + pydantic-core==2.33.2
+ + pydantic-settings==2.10.1
  + pydeck==0.9.1
  + pygments==2.19.2
+ + pypdf==5.9.0
  + pypika==0.48.9
  + pyproject-hooks==1.2.0
+ + pysbd==0.3.4
  + python-dateutil==2.9.0.post0
  + python-dotenv==1.1.1
  + pytz==2025.2
  + pyyaml==6.0.2
+ + qdrant-client==1.15.1
  + referencing==0.36.2
  + regex==2025.7.34
  + requests==2.32.5
  + requests-oauthlib==2.0.0
- + rich==14.1.0
+ + requests-toolbelt==1.0.0
+ + rich==13.9.4
  + rpds-py==0.27.1
  + rsa==4.9.1
  + schema==0.7.7
@@ -138,60 +155,56 @@ Installed 145 packages in 932ms
  + six==1.17.0
  + smmap==5.0.2
  + sniffio==1.3.1
+ + soupsieve==2.8
  + sqlalchemy==2.0.43
  + starlette==0.47.3
  + streamlit==1.49.0
  + sympy==1.14.0
- + tenacity==8.5.0
- + tiktoken==0.4.0
- + tokenizers==0.21.4
+ + tabulate==0.9.0
+ + tenacity==9.1.2
+ + tiktoken==0.11.0
+ + tokenizers==0.20.3
  + toml==0.10.2
  + tomli==2.2.1
- + tornado==6.5.2
+ +[2025-08-28 15:17:20.319526]  tornado==6.5.2
  + tqdm==4.67.1
  + typer==0.16.1
+ + types-requests==2.32.4.20250809
  + typing-extensions==4.15.0
  + typing-inspect==0.9.0
  + typing-inspection==0.4.1
  + tzdata==2025.2
- + urllib3==1.26.20
+ + urllib3==2.5.0
  + uvicorn==0.35.0
  + uvloop==0.21.0
  + watchdog==6.0.0
  + watchfiles==1.1.0
  + websocket-client==1.8.0
  + websockets==15.0.1
- + wrapt[2025-08-28 15:06:45.558963] ==1.17.3
+ + wrapt==1.17.3
  + yarl==1.20.1
  + zipp==3.23.0
+ + zstandard==0.23.0
 Checking if Streamlit is installed
 Found Streamlit version 1.49.0 in the environment
 Installing rich for an improved exception logging
 Using uv pip install.
-Using Python 3.10.18 environment at /home/adminuser/venv
-Audited 1 package in 6ms
+Using Python 3.10.18 environment at /home/adminuser/venv[2025-08-28 15:17:23.586277] 
+Audited [2025-08-28 15:17:23.601835] 1 package[2025-08-28 15:17:23.602162]  [2025-08-28 15:17:23.602504] in 19ms[2025-08-28 15:17:23.602736] 
 
 ────────────────────────────────────────────────────────────────────────────────────────
 
-[15:06:48] 🐍 Python dependencies were installed from /mount/src/rag/requirements.txt using uv.
+[15:17:23] 🐍 Python dependencies were installed from /mount/src/rag/requirements.txt using uv.
 Check if streamlit is installed
 Streamlit is already installed
-[15:06:49] 📦 Processed dependencies!
+[15:17:25] 📦 Processed dependencies!
 
 
 
-[15:06:51] 🐙 Pulling code changes from Github...
-[15:06:52] 📦 Processing dependencies...
-[15:06:52] 📦 Processed dependencies!
-[15:06:53] 🔄 Updated app!
-[15:06:57] 🐙 Pulling code changes from Github...
-[15:06:58] 📦 Processing dependencies...
-[15:06:58] 📦 Processed dependencies!
-[15:06:59] 🔄 Updated app!
 ERROR: Could not install packages due to an OSError: [Errno 13] Permission denied: '/home/adminuser/venv/lib/python3.10/site-packages/pysqlite3_binary.libs'
 Check the permissions.
 
-2025-08-28 15:07:14,105 [embedchain] [ERROR] Failed to swap std-lib sqlite3 with pysqlite3 for ChromaDb compatibility. Error: Command '['/home/adminuser/venv/bin/python3', '-m', 'pip', 'install', 'pysqlite3-binary', '--quiet', '--disable-pip-version-check']' returned non-zero exit status 1.
+2025-08-28 15:17:43,552 [embedchain] [ERROR] Failed to swap std-lib sqlite3 with pysqlite3 for ChromaDb compatibility. Error: Command '['/home/adminuser/venv/bin/python3', '-m', 'pip', 'install', 'pysqlite3-binary', '--quiet', '--disable-pip-version-check']' returned non-zero exit status 1.
 ────────────────────── Traceback (most recent call last) ───────────────────────
   /home/adminuser/venv/lib/python3.10/site-packages/streamlit/runtime/scriptru  
   nner/exec_code.py:128 in exec_func_with_error_handling                        
@@ -206,7 +219,7 @@ Check the permissions.
      3 import streamlit as st                                                   
   ❱  4 from embedchain import App                                               
      5                                                                          
-     6 # Function to get Embedchain app with Groq config                        
+     6 # Function to get Embedchain app with Groq config and FAISS backend (no  
      7 @st.cache_resource                                                       
                                                                                 
   /home/adminuser/venv/lib/python3.10/site-packages/embedchain/__init__.py:5    
@@ -215,50 +228,46 @@ Check the permissions.
      2                                                                          
      3 __version__ = importlib.metadata.version(__package__ or __name__)        
      4                                                                          
-  ❱  5 from embedchain.apps.app import App  # noqa: F401                        
+  ❱  5 from embedchain.app import App  # noqa: F401                             
      6 from embedchain.client import Client  # noqa: F401                       
      7 from embedchain.pipeline import Pipeline  # noqa: F401                   
-     8 from embedchain.vectordb.chroma import ChromaDB  # noqa: F401            
+     8                                                                          
                                                                                 
-  /home/adminuser/venv/lib/python3.10/site-packages/embedchain/apps/app.py:17   
-  in <module>                                                                   
+  /home/adminuser/venv/lib/python3.10/site-packages/embedchain/app.py:41 in     
+  <module>                                                                      
                                                                                 
-     14 from embedchain.llm.openai import OpenAILlm                             
-     15 from embedchain.utils import validate_config                            
-     16 from embedchain.vectordb.base import BaseVectorDB                       
-  ❱  17 from embedchain.vectordb.chroma import ChromaDB                         
-     18                                                                         
-     19                                                                         
-     20 @register_deserializable                                                
+     38 from embedchain.utils.evaluation import EvalData, EvalMetric            
+     39 from embedchain.utils.misc import validate_config                       
+     40 from embedchain.vectordb.base import BaseVectorDB                       
+  ❱  41 from embedchain.vectordb.chroma import ChromaDB                         
+     42 from mem0 import Memory                                                 
+     43                                                                         
+     44 logger = logging.getLogger(__name__)                                    
                                                                                 
   /home/adminuser/venv/lib/python3.10/site-packages/embedchain/vectordb/chroma  
   .py:4 in <module>                                                             
                                                                                 
       1 import logging                                                          
-      2 from typing import Any, Dict, List, Optional, Tuple, Union              
+      2 from typing import Any, Optional, Union                                 
       3                                                                         
   ❱   4 from chromadb import Collection, QueryResult                            
       5 from langchain.docstore.document import Document                        
       6 from tqdm import tqdm                                                   
       7                                                                         
                                                                                 
-  /home/adminuser/venv/lib/python3.10/site-packages/chromadb/__init__.py:79 in  
+  /home/adminuser/venv/lib/python3.10/site-packages/chromadb/__init__.py:86 in  
   <module>                                                                      
                                                                                 
-     76 │   │   │   __import__("pysqlite3")                                     
-     77 │   │   │   sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")       
-     78 │   │   else:                                                           
-  ❱  79 │   │   │   raise RuntimeError(                                         
-     80 │   │   │   │   "\033[91mYour system has an unsupported version of sql  
-     81 │   │   │   │   │   requires sqlite3 >= 3.35.0.\033[0m\n"               
-     82 │   │   │   │   "\033[94mPlease visit \                                 
+     83 │   │   │   __import__("pysqlite3")                                     
+     84 │   │   │   sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")       
+     85 │   │   else:                                                           
+  ❱  86 │   │   │   raise RuntimeError(                                         
+     87 │   │   │   │   "\033[91mYour system has an unsupported version of sql  
+     88 │   │   │   │   │   requires sqlite3 >= 3.35.0.\033[0m\n"               
+     89 │   │   │   │   "\033[94mPlease visit \                                 
 ────────────────────────────────────────────────────────────────────────────────
 RuntimeError: [91mYour system has an unsupported version of sqlite3. Chroma    
 requires sqlite3 >= 3.35.0.[0m
 [94mPlease visit                     
 https://docs.trychroma.com/troubleshooting#sqlite to learn how                  
 to upgrade.[0m
-[15:07:23] 🐙 Pulling code changes from Github...
-[15:07:23] 📦 Processing dependencies...
-[15:07:23] 📦 Processed dependencies!
-[15:07:24] 🔄 Updated app!
