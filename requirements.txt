@@ -6,4 +6,4 @@ python-dotenv==1.0.1
 pypdf==4.3.1
 docx2txt==0.8
 pysqlite3-binary==0.5.4
-langchain-community==0.2.17  # Compatible with embedchain 0.1.121 for FAISS
+langchain-community==0.2.6  # Downgraded for compatibility
