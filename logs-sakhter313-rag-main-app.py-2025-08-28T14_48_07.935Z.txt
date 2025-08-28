@@ -1,0 +1,887 @@
+
+[     UTC     ] Logs for ragaimodel.streamlit.app/
+────────────────────────────────────────────────────────────────────────────────────────
+[14:46:30] 🖥 Provisioning machine...
+[14:46:30] 🎛 Preparing system...
+[14:46:30] ⛓ Spinning up manager process...
+[14:46:30] 🚀 Starting up repository: 'rag', branch: 'main', main module: 'app.py'
+[14:46:30] 🐙 Cloning repository...
+[14:46:31] 🐙 Cloning into '/mount/src/rag'...
+
+[14:46:31] 🐙 Cloned repository!
+[14:46:31] 🐙 Pulling code changes from Github...
+[14:46:31] 📦 Processing dependencies...
+
+──────────────────────────────────────── uv ───────────────────────────────────────────
+
+Using uv pip install.
+Using Python 3.12.11 environment at /home/adminuser/venv
+Resolved 142 packages in 2.52s
+  × Failed to download and build `tiktoken==0.4.0`
+  ╰─▶ Build backend failed to build wheel through `build_wheel` (exit status:
+      1)
+
+      [stdout]
+      running bdist_wheel
+      running build
+      running build_py
+      creating build/lib.linux-x86_64-cpython-312/tiktoken
+      copying tiktoken/model.py -> build/lib.linux-x86_64-cpython-312/tiktoken
+      copying tiktoken/registry.py ->
+      build/lib.linux-x86_64-cpython-312/tiktoken
+      copying tiktoken/core.py -> build/lib.linux-x86_64-cpython-312/tiktoken
+      copying tiktoken/load.py -> build/lib.linux-x86_64-cpython-312/tiktoken
+      copying tiktoken/__init__.py ->
+      build/lib.linux-x86_64-cpython-312/tiktoken
+      creating build/lib.linux-x86_64-cpython-312/tiktoken_ext
+      copying tiktoken_ext/openai_public.py ->
+      build/lib.linux-x86_64-cpython-312/tiktoken_ext
+      running egg_info
+      writing tiktoken.egg-info/PKG-INFO
+      writing dependency_links to tiktoken.egg-info/dependency_links.txt
+      writing requirements to tiktoken.egg-info/requires.txt
+      writing top-level names to tiktoken.egg-info/top_level.txt
+      reading manifest file 'tiktoken.egg-info/SOURCES.txt'
+      reading manifest template 'MANIFEST.in'
+      adding license file 'LICENSE'
+      writing manifest file 'tiktoken.egg-info/SOURCES.txt'
+      copying tiktoken/py.typed -> build/lib.linux-x86_64-cpython-312/tiktoken
+      running build_ext
+      running build_rust
+
+      [stderr]
+      /home/adminuser/.cache/uv/builds-v0/.tmperIv24/lib/python3.12/site-packages/setuptools/config/_apply_pyprojecttoml.py:82:
+      SetuptoolsDeprecationWarning: `project.license` as a TOML table is
+      deprecated
+      !!
+
+      
+      ********************************************************************************
+              Please use a simple string containing a SPDX expression for
+      `project.license`. You can also use `project.license-files`. (Both
+      options available on setuptools>=77.0.0).
+
+              By 2026-Feb-18, you need to update your project and remove
+      deprecated calls
+              or your builds will no longer be supported.
+
+              See
+      https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license
+      for details.
+      
+      ********************************************************************************
+
+      !!
+        corresp(dist, value, root_dir)
+      warning: no files found matching 'Makefile'
+      error: can't find Rust compiler
+
+      If you are using an outdated pip version, it is possible a prebuilt
+      wheel is available for this package but pip is not able to install from
+      it. Installing from the wheel would avoid the need for a Rust compiler.
+
+      To update pip, run:
+
+          pip install --upgrade pip
+
+      and then retry package installation.
+
+      If you did intend to build this package from source, try installing
+      a Rust compiler from your system package manager and ensure it is
+      on the PATH during installation. Alternatively, rustup (available at
+      https://rustup.rs) is the recommended way to download and update the
+      Rust compiler toolchain.
+
+  help: `tiktoken` was included because `embedchain==0.1.34` depends on
+        `tiktoken`
+Checking if Streamlit is installed
+Installing rich for an improved exception logging
+Using uv pip install.
+Using Python 3.12.11 environment at /home/adminuser/venv
+Resolved 4 packages in 3ms
+Installed 4 packages in 16ms
+ + markdown-it-py==4.0.0
+ + mdurl==0.1.2
+ + pygments==2.19.2
+ [2025-08-28 14:46:36.863218] + rich==14.1.0
+
+────────────────────────────────────────────────────────────────────────────────────────
+
+
+──────────────────────────────────────── pip ───────────────────────────────────────────
+
+Using standard pip install.
+Collecting mdurl==0.1.2 (from -r /mount/src/rag/requirements.txt (line 1))
+  Downloading mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+Collecting pygments==2.19.2 (from -r /mount/src/rag/requirements.txt (line 2))
+  Downloading pygments-2.19.2-py3-none-any.whl.metadata (2.5 kB)
+Collecting rich==14.1.0 (from -r /mount/src/rag/requirements.txt (line 3))
+  Downloading rich-14.1.0-py3-none-any.whl.metadata (18 kB)
+Collecting streamlit<2.0.0,>=1.38.0 (from -r /mount/src/rag/requirements.txt (line 4))
+  Downloading streamlit-1.49.0-py3-none-any.whl.metadata (9.5 kB)
+Collecting embedchain (from -r /mount/src/rag/requirements.txt (line 5))
+  Downloading embedchain-0.1.128-py3-none-any.whl.metadata (9.2 kB)
+Collecting markdown-it-py>=2.2.0 (from rich==14.1.0->-r /mount/src/rag/requirements.txt (line 3))
+  Downloading markdown_it_py-4.0.0-py3-none-any.whl.metadata (7.3 kB)
+Collecting altair!=5.4.0,!=5.4.1,<6,>=4.0 (from streamlit<2.0.0,>=1.38.0->-r /mount/src/rag/requirements.txt (line 4))
+  Downloading altair-5.5.0-py3-none-any.whl.metadata (11 kB)
+Collecting blinker<2,>=1.5.0 (from streamlit<2.0.0,>=1.38.0->-r /mount/src/rag/requirements.txt (line 4))
+  Downloading blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+Collecting cachetools<7,>=4.0 (from streamlit<2.0.0,>=1.38.0->-r /mount/src/rag/requirements.txt (line 4))
+  Downloading cachetools-6.2.0-py3-none-any.whl.metadata (5.4 kB)
+Collecting click<9,>=7.0 (from streamlit<2.0.0,>=1.38.0->-r /mount/src/rag/requirements.txt (line 4))
+  Downloading click-8.2.1-py3-none-any.whl.metadata (2.5 kB)
+Collecting numpy<3,>=1.23 (from streamlit<2.0.0,>=1.38.0->-r /mount/src/rag/requirements.txt (line 4))
+  Downloading numpy-2.3.2-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.1/62.1 kB 6.9 MB/s eta 0:00:00[2025-08-28 14:46:39.384892] 
+Collecting packaging<26,>=20 (from streamlit<2.0.0,>=1.38.0->-r /mount/src/rag/requirements.txt (line 4))
+  Downloading packaging-25.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting pandas<3,>=1.4.0 (from streamlit<2.0.0,>=1.38.0->-r /mount/src/rag/requirements.txt (line 4))
+  Downloading pandas-2.3.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (91 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 91.2/91.2 kB 117.8 MB/s eta 0:00:00[2025-08-28 14:46:39.660902] 
+Collecting pillow<12,>=7.1.0 (from streamlit<2.0.0,>=1.38.0->-r /mount/src/rag/requirements.txt (line 4))
+  Downloading pillow-11.3.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.0 kB)
+Collecting protobuf<7,>=3.20 (from streamlit<2.0.0,>=1.38.0->-r /mount/src/rag/requirements.txt (line 4))
+  Downloading protobuf-6.32.0-cp39-abi3-manylinux2014_x86_64.whl.metadata (593 bytes)
+Collecting pyarrow>=7.0 (from streamlit<2.0.0,>=1.38.0->-r /mount/src/rag/requirements.txt (line 4))
+  Downloading pyarrow-21.0.0-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (3.3 kB)
+Collecting requests<3,>=2.27 (from streamlit<2.0.0,>=1.38.0->-r /mount/src/rag/requirements.txt (line 4))
+  Downloading requests-2.32.5-py3-none-any.whl.metadata (4.9 kB)
+Collecting tenacity<10,>=8.1.0 (from streamlit<2.0.0,>=1.38.0->-r /mount/src/rag/requirements.txt (line 4))
+  Downloading tenacity-9.1.2-py3-none-any.whl.metadata (1.2 kB)
+Collecting toml<2,>=0.10.1 (from streamlit<2.0.0,>=1.38.0->-r /mount/src/rag/requirements.txt (line 4))
+  Downloading toml-0.10.2-py2.py3-none-any.whl.metadata (7.1 kB)
+Collecting typing-extensions<5,>=4.4.0 (from streamlit<2.0.0,>=1.38.0->-r /mount/src/rag/requirements.txt (line 4))
+  Downloading typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting watchdog<7,>=2.1.5 (from streamlit<2.0.0,>=1.38.0->-r /mount/src/rag/requirements.txt (line 4))
+  Downloading watchdog-6.0.0-py3-none-manylinux2014_x86_64.whl.metadata (44 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 44.3/44.3 kB 154.1 MB/s eta 0:00:00[2025-08-28 14:46:40.909961] 
+Collecting gitpython!=3.1.19,<4,>=3.0.7 (from streamlit<2.0.0,>=1.38.0->-r /mount/src/rag/requirements.txt (line 4))
+  Downloading gitpython-3.1.45-py3-none-any.whl.metadata (13 kB)
+Collecting pydeck<1,>=0.8.0b4 (from streamlit<2.0.0,>=1.38.0->-r /mount/src/rag/requirements.txt (line 4))
+  Downloading pydeck-0.9.1-py2.py3-none-any.whl.metadata (4.1 kB)
+Collecting tornado!=6.5.0,<7,>=6.0.3 (from streamlit<2.0.0,>=1.38.0->-r /mount/src/rag/requirements.txt (line 4))
+  Downloading tornado-6.5.2-cp39-abi3-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.8 kB)
+Collecting alembic<2.0.0,>=1.13.1 (from embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading alembic-1.16.5-py3-none-any.whl.metadata (7.3 kB)
+Collecting beautifulsoup4<5.0.0,>=4.12.2 (from embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading beautifulsoup4-4.13.5-py3-none-any.whl.metadata (3.8 kB)
+Collecting chromadb<0.6.0,>=0.5.10 (from embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading chromadb-0.5.23-py3-none-any.whl.metadata (6.8 kB)
+Collecting gptcache<0.2.0,>=0.1.43 (from embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading gptcache-0.1.44-py3-none-any.whl.metadata (24 kB)
+Collecting langchain<0.4.0,>=0.3.1 (from embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading langchain-0.3.27-py3-none-any.whl.metadata (7.8 kB)
+Collecting langchain-cohere<0.4.0,>=0.3.0 (from embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading langchain_cohere-0.3.5-py3-none-any.whl.metadata (6.7 kB)
+Collecting langchain-community<0.4.0,>=0.3.1 (from embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading langchain_community-0.3.29-py3-none-any.whl.metadata (2.9 kB)
+Collecting langchain-openai<0.3.0,>=0.2.1 (from embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading langchain_openai-0.2.14-py3-none-any.whl.metadata (2.7 kB)
+Collecting langsmith<0.4.0,>=0.3.18 (from embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading langsmith-0.3.45-py3-none-any.whl.metadata (15 kB)
+Collecting mem0ai<0.2.0,>=0.1.54 (from embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading mem0ai-0.1.116-py3-none-any.whl.metadata (9.0 kB)
+Collecting openai>=1.1.1 (from embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading openai-1.102.0-py3-none-any.whl.metadata (29 kB)
+Collecting posthog<4.0.0,>=3.0.2 (from embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading posthog-3.25.0-py2.py3-none-any.whl.metadata (3.0 kB)
+Collecting pypdf<6.0.0,>=5.0.0 (from embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading pypdf-5.9.0-py3-none-any.whl.metadata (7.1 kB)
+Collecting pysbd<0.4.0,>=0.3.4 (from embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading pysbd-0.3.4-py3-none-any.whl.metadata (6.1 kB)
+Collecting python-dotenv<2.0.0,>=1.0.0 (from embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading python_dotenv-1.1.1-py3-none-any.whl.metadata (24 kB)
+INFO: pip is looking at multiple versions of embedchain to determine which version is compatible with other requirements. This could take a while.
+Collecting embedchain (from -r /mount/src/rag/requirements.txt (line 5))
+  Downloading embedchain-0.1.127-py3-none-any.whl.metadata (9.3 kB)
+Collecting cohere<6.0,>=5.3 (from embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading cohere-5.17.0-py3-none-any.whl.metadata (3.4 kB)
+Collecting google-cloud-aiplatform<2.0.0,>=1.26.1 (from embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading google_cloud_aiplatform-1.111.0-py2.py3-none-any.whl.metadata (38 kB)
+Collecting langsmith<0.2.0,>=0.1.17 (from embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading langsmith-0.1.147-py3-none-any.whl.metadata (14 kB)
+Collecting embedchain (from -r /mount/src/rag/requirements.txt (line 5))
+  Downloading embedchain-0.1.126-py3-none-any.whl.metadata (9.3 kB)
+  Downloading embedchain-0.1.125-py3-none-any.whl.metadata (9.3 kB)
+  Downloading embedchain-0.1.124-py3-none-any.whl.metadata (9.3 kB)
+Collecting chromadb<0.5.0,>=0.4.24 (from embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading chromadb-0.4.24-py3-none-any.whl.metadata (7.3 kB)
+Collecting embedchain (from -r /mount/src/rag/requirements.txt (line 5))
+  Downloading embedchain-0.1.123-py3-none-any.whl.metadata (9.3 kB)
+  Downloading embedchain-0.1.122-py3-none-any.whl.metadata (9.3 kB)
+Collecting langchain<=0.3,>0.2 (from embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading langchain-0.3.0-py3-none-any.whl.metadata (7.1 kB)
+Collecting langchain-cohere<0.2.0,>=0.1.4 (from embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading langchain_cohere-0.1.9-py3-none-any.whl.metadata (6.6 kB)
+Collecting langchain-community<0.3.0,>=0.2.6 (from embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading langchain_community-0.2.19-py3-none-any.whl.metadata (2.7 kB)
+Collecting langchain-openai<0.2.0,>=0.1.7 (from embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading langchain_openai-0.1.25-py3-none-any.whl.metadata (2.6 kB)
+Collecting pypdf<5.0.0,>=4.0.1 (from embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading pypdf-4.3.1-py3-none-any.whl.metadata (7.4 kB)
+Collecting embedchain (from -r /mount/src/rag/requirements.txt (line 5))
+  Downloading embedchain-0.1.121-py3-none-any.whl.metadata (9.3 kB)
+Collecting mem0ai<0.0.21,>=0.0.20 (from embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading mem0ai-0.0.20-py3-none-any.whl.metadata (8.2 kB)
+INFO: pip is still looking at multiple versions of embedchain to determine which version is compatible with other requirements. This could take a while.
+Collecting embedchain (from -r /mount/src/rag/requirements.txt (line 5))
+  Downloading embedchain-0.1.120-py3-none-any.whl.metadata (9.3 kB)
+Collecting mem0ai<0.0.10,>=0.0.9 (from embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading mem0ai-0.0.9-py3-none-any.whl.metadata (3.8 kB)
+Collecting embedchain (from -r /mount/src/rag/requirements.txt (line 5))
+  Downloading embedchain-0.1.119-py3-none-any.whl.metadata (9.1 kB)
+  Downloading embedchain-0.1.118-py3-none-any.whl.metadata (9.1 kB)
+Collecting mem0ai<0.0.6,>=0.0.5 (from embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading mem0ai-0.0.5-py3-none-any.whl.metadata (3.9 kB)
+Collecting embedchain (from -r /mount/src/rag/requirements.txt (line 5))
+  Downloading embedchain-0.1.117-py3-none-any.whl.metadata (9.1 kB)
+  Downloading embedchain-0.1.116-py3-none-any.whl.metadata (10 kB)
+Collecting clarifai<11.0.0,>=10.0.1 (from embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading clarifai-10.11.1-py3-none-any.whl.metadata (22 kB)
+Collecting memzero<0.0.8,>=0.0.7 (from embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading memzero-0.0.7-py3-none-any.whl.metadata (1.8 kB)
+INFO: This is taking longer than usual. You might need to provide the dependency resolver with stricter constraints to reduce runtime. See https://pip.pypa.io/warnings/backtracking for guidance. If you want to abort this run, press Ctrl + C.
+Collecting embedchain (from -r /mount/src/rag/requirements.txt (line 5))
+  Downloading embedchain-0.1.115-py3-none-any.whl.metadata (10 kB)
+  Downloading embedchain-0.1.114-py3-none-any.whl.metadata (10 kB)
+  Downloading embedchain-0.1.113-py3-none-any.whl.metadata (10 kB)
+Collecting langchain<0.2.0,>=0.1.4 (from embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading langchain-0.1.20-py3-none-any.whl.metadata (13 kB)
+Collecting embedchain (from -r /mount/src/rag/requirements.txt (line 5))
+  Downloading embedchain-0.1.112-py3-none-any.whl.metadata (10 kB)
+  Downloading embedchain-0.1.111-py3-none-any.whl.metadata (10 kB)
+  Downloading embedchain-0.1.110-py3-none-any.whl.metadata (10 kB)
+  Downloading embedchain-0.1.109-py3-none-any.whl.metadata (10 kB)
+  Downloading embedchain-0.1.108-py3-none-any.whl.metadata (10 kB)
+  Downloading embedchain-0.1.107-py3-none-any.whl.metadata (10 kB)
+  Downloading embedchain-0.1.106-py3-none-any.whl.metadata (10 kB)
+  Downloading embedchain-0.1.105-py3-none-any.whl.metadata (10 kB)
+  Downloading embedchain-0.1.104-py3-none-any.whl.metadata (10 kB)
+  Downloading embedchain-0.1.103-py3-none-any.whl.metadata (10 kB)
+Collecting langchain-openai<0.0.6,>=0.0.5 (from embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading langchain_openai-0.0.5-py3-none-any.whl.metadata (2.5 kB)
+Collecting embedchain (from -r /mount/src/rag/requirements.txt (line 5))
+  Downloading embedchain-0.1.102-py3-none-any.whl.metadata (10 kB)
+Collecting pypdf<4.0.0,>=3.11.0 (from embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading pypdf-3.17.4-py3-none-any.whl.metadata (7.5 kB)
+Collecting embedchain (from -r /mount/src/rag/requirements.txt (line 5))
+  Downloading embedchain-0.1.101-py3-none-any.whl.metadata (10 kB)
+  Downloading embedchain-0.1.100-py3-none-any.whl.metadata (10 kB)
+  Downloading embedchain-0.1.99-py3-none-any.whl.metadata (10 kB)
+  Downloading embedchain-0.1.98-py3-none-any.whl.metadata (10 kB)
+  Downloading embedchain-0.1.97-py3-none-any.whl.metadata (10 kB)
+  Downloading embedchain-0.1.96-py3-none-any.whl.metadata (10 kB)
+  Downloading embedchain-0.1.95-py3-none-any.whl.metadata (10 kB)
+  Downloading embedchain-0.1.94-py3-none-any.whl.metadata (10 kB)
+  Downloading embedchain-0.1.93-py3-none-any.whl.metadata (11 kB)
+  Downloading embedchain-0.1.92-py3-none-any.whl.metadata (11 kB)
+  Downloading embedchain-0.1.91-py3-none-any.whl.metadata (11 kB)
+  Downloading embedchain-0.1.90-py3-none-any.whl.metadata (11 kB)
+  Downloading embedchain-0.1.89-py3-none-any.whl.metadata (11 kB)
+  Downloading embedchain-0.1.88-py3-none-any.whl.metadata (11 kB)
+  Downloading embedchain-0.1.87-py3-none-any.whl.metadata (11 kB)
+  Downloading embedchain-0.1.86-py3-none-any.whl.metadata (11 kB)
+  Downloading embedchain-0.1.85-py3-none-any.whl.metadata (11 kB)
+  Downloading embedchain-0.1.84-py3-none-any.whl.metadata (11 kB)
+  Downloading embedchain-0.1.83-py3-none-any.whl.metadata (11 kB)
+  Downloading embedchain-0.1.82-py3-none-any.whl.metadata (11 kB)
+  Downloading embedchain-0.0.92-py3-none-any.whl.metadata (16 kB)
+Collecting langchain<0.0.304,>=0.0.303 (from embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading langchain-0.0.303-py3-none-any.whl.metadata (15 kB)
+Collecting schema<0.8.0,>=0.7.5 (from embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading schema-0.7.7-py2.py3-none-any.whl.metadata (34 kB)
+Collecting tiktoken<0.5.0,>=0.4.0 (from embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading tiktoken-0.4.0.tar.gz (25 kB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting youtube-transcript-api<0.7.0,>=0.6.1 (from embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading youtube_transcript_api-0.6.3-py3-none-any.whl.metadata (17 kB)
+Collecting jinja2 (from altair!=5.4.0,!=5.4.1,<6,>=4.0->streamlit<2.0.0,>=1.38.0->-r /mount/src/rag/requirements.txt (line 4))
+  Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting jsonschema>=3.0 (from altair!=5.4.0,!=5.4.1,<6,>=4.0->streamlit<2.0.0,>=1.38.0->-r /mount/src/rag/requirements.txt (line 4))
+  Downloading jsonschema-4.25.1-py3-none-any.whl.metadata (7.6 kB)
+Collecting narwhals>=1.14.2 (from altair!=5.4.0,!=5.4.1,<6,>=4.0->streamlit<2.0.0,>=1.38.0->-r /mount/src/rag/requirements.txt (line 4))
+  Downloading narwhals-2.2.0-py3-none-any.whl.metadata (11 kB)
+Collecting build>=1.0.3 (from chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading build-1.3.0-py3-none-any.whl.metadata (5.6 kB)
+Collecting pydantic>=1.9 (from chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading pydantic-2.11.7-py3-none-any.whl.metadata (67 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 68.0/68.0 kB 160.2 MB/s eta 0:00:00[2025-08-28 14:46:52.764361] 
+Collecting chroma-hnswlib==0.7.3 (from chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading chroma-hnswlib-0.7.3.tar.gz (31 kB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting fastapi>=0.95.2 (from chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading fastapi-0.116.1-py3-none-any.whl.metadata (28 kB)
+Collecting uvicorn>=0.18.3 (from uvicorn[standard]>=0.18.3->chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading uvicorn-0.35.0-py3-none-any.whl.metadata (6.5 kB)
+Collecting pulsar-client>=3.1.0 (from chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading pulsar_client-3.8.0-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (1.1 kB)
+Collecting onnxruntime>=1.14.1 (from chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading onnxruntime-1.22.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (4.9 kB)
+Collecting opentelemetry-api>=1.2.0 (from chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading opentelemetry_api-1.36.0-py3-none-any.whl.metadata (1.5 kB)
+Collecting opentelemetry-exporter-otlp-proto-grpc>=1.2.0 (from chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading opentelemetry_exporter_otlp_proto_grpc-1.36.0-py3-none-any.whl.metadata (2.4 kB)
+Collecting opentelemetry-instrumentation-fastapi>=0.41b0 (from chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading opentelemetry_instrumentation_fastapi-0.57b0-py3-none-any.whl.metadata (2.2 kB)
+Collecting opentelemetry-sdk>=1.2.0 (from chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading opentelemetry_sdk-1.36.0-py3-none-any.whl.metadata (1.5 kB)
+Collecting tokenizers>=0.13.2 (from chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading tokenizers-0.21.4-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.7 kB)
+Collecting pypika>=0.48.9 (from chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading PyPika-0.48.9.tar.gz (67 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 67.3/67.3 kB 105.4 MB/s eta 0:00:00[2025-08-28 14:47:00.633612] 
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting tqdm>=4.65.0 (from chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading tqdm-4.67.1-py3-none-any.whl.metadata (57 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 57.7/57.7 kB 115.4 MB/s eta 0:00:00[2025-08-28 14:47:03.986819] 
+Collecting overrides>=7.3.1 (from chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading overrides-7.7.0-py3-none-any.whl.metadata (5.8 kB)
+Collecting importlib-resources (from chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading importlib_resources-6.5.2-py3-none-any.whl.metadata (3.9 kB)
+Collecting grpcio>=1.58.0 (from chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading grpcio-1.74.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.8 kB)
+Collecting bcrypt>=4.0.1 (from chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading bcrypt-4.3.0-cp39-abi3-manylinux_2_28_x86_64.whl.metadata (10 kB)
+Collecting typer>=0.9.0 (from chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading typer-0.16.1-py3-none-any.whl.metadata (15 kB)
+Collecting kubernetes>=28.1.0 (from chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading kubernetes-33.1.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting PyYAML>=6.0.0 (from chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading PyYAML-6.0.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.1 kB)
+Collecting mmh3>=4.0.1 (from chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading mmh3-5.2.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (14 kB)
+Collecting orjson>=3.9.12 (from chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading orjson-3.11.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (41 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 41.9/41.9 kB 150.0 MB/s eta 0:00:00[2025-08-28 14:47:05.935909] 
+Collecting gitdb<5,>=4.0.1 (from gitpython!=3.1.19,<4,>=3.0.7->streamlit<2.0.0,>=1.38.0->-r /mount/src/rag/requirements.txt (line 4))
+  Downloading gitdb-4.0.12-py3-none-any.whl.metadata (1.2 kB)
+Collecting SQLAlchemy<3,>=1.4 (from langchain<0.0.304,>=0.0.303->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading sqlalchemy-2.0.43-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (9.6 kB)
+Collecting aiohttp<4.0.0,>=3.8.3 (from langchain<0.0.304,>=0.0.303->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading aiohttp-3.12.15-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.7 kB)
+Collecting anyio<4.0 (from langchain<0.0.304,>=0.0.303->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading anyio-3.7.1-py3-none-any.whl.metadata (4.7 kB)
+Collecting dataclasses-json<0.7,>=0.5.7 (from langchain<0.0.304,>=0.0.303->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading dataclasses_json-0.6.7-py3-none-any.whl.metadata (25 kB)
+Collecting jsonpatch<2.0,>=1.33 (from langchain<0.0.304,>=0.0.303->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading jsonpatch-1.33-py2.py3-none-any.whl.metadata (3.0 kB)
+Collecting langsmith<0.1.0,>=0.0.38 (from langchain<0.0.304,>=0.0.303->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading langsmith-0.0.92-py3-none-any.whl.metadata (9.9 kB)
+Collecting numexpr<3.0.0,>=2.8.4 (from langchain<0.0.304,>=0.0.303->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading numexpr-2.11.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.0 kB)
+Collecting numpy<3,>=1.23 (from streamlit<2.0.0,>=1.38.0->-r /mount/src/rag/requirements.txt (line 4))
+  Downloading numpy-1.26.4-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (61 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 61.0/61.0 kB 172.0 MB/s eta 0:00:00[2025-08-28 14:47:08.020545] 
+Collecting tenacity<10,>=8.1.0 (from streamlit<2.0.0,>=1.38.0->-r /mount/src/rag/requirements.txt (line 4))
+  Downloading tenacity-8.5.0-py3-none-any.whl.metadata (1.2 kB)
+Collecting distro<2,>=1.7.0 (from openai>=1.1.1->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading distro-1.9.0-py3-none-any.whl.metadata (6.8 kB)
+Collecting httpx<1,>=0.23.0 (from openai>=1.1.1->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+Collecting jiter<1,>=0.4.0 (from openai>=1.1.1->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading jiter-0.10.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.2 kB)
+Collecting sniffio (from openai>=1.1.1->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading sniffio-1.3.1-py3-none-any.whl.metadata (3.9 kB)
+Collecting python-dateutil>=2.8.2 (from pandas<3,>=1.4.0->streamlit<2.0.0,>=1.38.0->-r /mount/src/rag/requirements.txt (line 4))
+  Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+Collecting pytz>=2020.1 (from pandas<3,>=1.4.0->streamlit<2.0.0,>=1.38.0->-r /mount/src/rag/requirements.txt (line 4))
+  Downloading pytz-2025.2-py2.py3-none-any.whl.metadata (22 kB)
+Collecting tzdata>=2022.7 (from pandas<3,>=1.4.0->streamlit<2.0.0,>=1.38.0->-r /mount/src/rag/requirements.txt (line 4))
+  Downloading tzdata-2025.2-py2.py3-none-any.whl.metadata (1.4 kB)
+Collecting six>=1.5 (from posthog<4.0.0,>=3.0.2->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting monotonic>=1.5 (from posthog<4.0.0,>=3.0.2->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading monotonic-1.6-py2.py3-none-any.whl.metadata (1.5 kB)
+Collecting backoff>=1.10.0 (from posthog<4.0.0,>=3.0.2->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading backoff-2.2.1-py3-none-any.whl.metadata (14 kB)
+Collecting charset_normalizer<4,>=2 (from requests<3,>=2.27->streamlit<2.0.0,>=1.38.0->-r /mount/src/rag/requirements.txt (line 4))
+  Downloading charset_normalizer-3.4.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (36 kB)
+Collecting idna<4,>=2.5 (from requests<3,>=2.27->streamlit<2.0.0,>=1.38.0->-r /mount/src/rag/requirements.txt (line 4))
+  Downloading idna-3.10-py3-none-any.whl.metadata (10 kB)
+Collecting urllib3<3,>=1.21.1 (from requests<3,>=2.27->streamlit<2.0.0,>=1.38.0->-r /mount/src/rag/requirements.txt (line 4))
+  Downloading urllib3-2.5.0-py3-none-any.whl.metadata (6.5 kB)
+Collecting certifi>=2017.4.17 (from requests<3,>=2.27->streamlit<2.0.0,>=1.38.0->-r /mount/src/rag/requirements.txt (line 4))
+  Downloading certifi-2025.8.3-py3-none-any.whl.metadata (2.4 kB)
+Collecting regex>=2022.1.18 (from tiktoken<0.5.0,>=0.4.0->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading regex-2025.7.34-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.5/40.5 kB 169.8 MB/s eta 0:00:00[2025-08-28 14:47:10.027766] 
+Collecting defusedxml<0.8.0,>=0.7.1 (from youtube-transcript-api<0.7.0,>=0.6.1->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading defusedxml-0.7.1-py2.py3-none-any.whl.metadata (32 kB)
+Collecting aiohappyeyeballs>=2.5.0 (from aiohttp<4.0.0,>=3.8.3->langchain<0.0.304,>=0.0.303->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading aiohappyeyeballs-2.6.1-py3-none-any.whl.metadata (5.9 kB)
+Collecting aiosignal>=1.4.0 (from aiohttp<4.0.0,>=3.8.3->langchain<0.0.304,>=0.0.303->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading aiosignal-1.4.0-py3-none-any.whl.metadata (3.7 kB)
+Collecting attrs>=17.3.0 (from aiohttp<4.0.0,>=3.8.3->langchain<0.0.304,>=0.0.303->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading attrs-25.3.0-py3-none-any.whl.metadata (10 kB)
+Collecting frozenlist>=1.1.1 (from aiohttp<4.0.0,>=3.8.3->langchain<0.0.304,>=0.0.303->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading frozenlist-1.7.0-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (18 kB)
+Collecting multidict<7.0,>=4.5 (from aiohttp<4.0.0,>=3.8.3->langchain<0.0.304,>=0.0.303->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading multidict-6.6.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (5.3 kB)
+Collecting propcache>=0.2.0 (from aiohttp<4.0.0,>=3.8.3->langchain<0.0.304,>=0.0.303->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading propcache-0.3.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (12 kB)
+Collecting yarl<2.0,>=1.17.0 (from aiohttp<4.0.0,>=3.8.3->langchain<0.0.304,>=0.0.303->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading yarl-1.20.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (73 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 73.9/73.9 kB 130.6 MB/s eta 0:00:00[2025-08-28 14:47:11.635506] 
+Collecting pyproject_hooks (from build>=1.0.3->chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading pyproject_hooks-1.2.0-py3-none-any.whl.metadata (1.3 kB)
+Collecting marshmallow<4.0.0,>=3.18.0 (from dataclasses-json<0.7,>=0.5.7->langchain<0.0.304,>=0.0.303->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading marshmallow-3.26.1-py3-none-any.whl.metadata (7.3 kB)
+Collecting typing-inspect<1,>=0.4.0 (from dataclasses-json<0.7,>=0.5.7->langchain<0.0.304,>=0.0.303->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading typing_inspect-0.9.0-py3-none-any.whl.metadata (1.5 kB)
+Collecting starlette<0.48.0,>=0.40.0 (from fastapi>=0.95.2->chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading starlette-0.47.3-py3-none-any.whl.metadata (6.2 kB)
+Collecting smmap<6,>=3.0.1 (from gitdb<5,>=4.0.1->gitpython!=3.1.19,<4,>=3.0.7->streamlit<2.0.0,>=1.38.0->-r /mount/src/rag/requirements.txt (line 4))
+  Downloading smmap-5.0.2-py3-none-any.whl.metadata (4.3 kB)
+Collecting httpcore==1.* (from httpx<1,>=0.23.0->openai>=1.1.1->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
+Collecting h11>=0.16 (from httpcore==1.*->httpx<1,>=0.23.0->openai>=1.1.1->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+Collecting MarkupSafe>=2.0 (from jinja2->altair!=5.4.0,!=5.4.1,<6,>=4.0->streamlit<2.0.0,>=1.38.0->-r /mount/src/rag/requirements.txt (line 4))
+  Downloading MarkupSafe-3.0.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.0 kB)
+Collecting jsonpointer>=1.9 (from jsonpatch<2.0,>=1.33->langchain<0.0.304,>=0.0.303->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading jsonpointer-3.0.0-py2.py3-none-any.whl.metadata (2.3 kB)
+Collecting jsonschema-specifications>=2023.03.6 (from jsonschema>=3.0->altair!=5.4.0,!=5.4.1,<6,>=4.0->streamlit<2.0.0,>=1.38.0->-r /mount/src/rag/requirements.txt (line 4))
+  Downloading jsonschema_specifications-2025.4.1-py3-none-any.whl.metadata (2.9 kB)
+Collecting referencing>=0.28.4 (from jsonschema>=3.0->altair!=5.4.0,!=5.4.1,<6,>=4.0->streamlit<2.0.0,>=1.38.0->-r /mount/src/rag/requirements.txt (line 4))
+  Downloading referencing-0.36.2-py3-none-any.whl.metadata (2.8 kB)
+Collecting rpds-py>=0.7.1 (from jsonschema>=3.0->altair!=5.4.0,!=5.4.1,<6,>=4.0->streamlit<2.0.0,>=1.38.0->-r /mount/src/rag/requirements.txt (line 4))
+  Downloading rpds_py-0.27.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.2 kB)
+Collecting google-auth>=1.0.1 (from kubernetes>=28.1.0->chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading google_auth-2.40.3-py2.py3-none-any.whl.metadata (6.2 kB)
+Collecting websocket-client!=0.40.0,!=0.41.*,!=0.42.*,>=0.32.0 (from kubernetes>=28.1.0->chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading websocket_client-1.8.0-py3-none-any.whl.metadata (8.0 kB)
+Collecting requests-oauthlib (from kubernetes>=28.1.0->chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading requests_oauthlib-2.0.0-py2.py3-none-any.whl.metadata (11 kB)
+Collecting oauthlib>=3.2.2 (from kubernetes>=28.1.0->chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading oauthlib-3.3.1-py3-none-any.whl.metadata (7.9 kB)
+Collecting durationpy>=0.7 (from kubernetes>=28.1.0->chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading durationpy-0.10-py3-none-any.whl.metadata (340 bytes)
+Collecting coloredlogs (from onnxruntime>=1.14.1->chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading coloredlogs-15.0.1-py2.py3-none-any.whl.metadata (12 kB)
+Collecting flatbuffers (from onnxruntime>=1.14.1->chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading flatbuffers-25.2.10-py2.py3-none-any.whl.metadata (875 bytes)
+Collecting sympy (from onnxruntime>=1.14.1->chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading sympy-1.14.0-py3-none-any.whl.metadata (12 kB)
+Collecting importlib-metadata<8.8.0,>=6.0 (from opentelemetry-api>=1.2.0->chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading importlib_metadata-8.7.0-py3-none-any.whl.metadata (4.8 kB)
+Collecting googleapis-common-protos~=1.57 (from opentelemetry-exporter-otlp-proto-grpc>=1.2.0->chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading googleapis_common_protos-1.70.0-py3-none-any.whl.metadata (9.3 kB)
+Collecting opentelemetry-exporter-otlp-proto-common==1.36.0 (from opentelemetry-exporter-otlp-proto-grpc>=1.2.0->chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading opentelemetry_exporter_otlp_proto_common-1.36.0-py3-none-any.whl.metadata (1.8 kB)
+Collecting opentelemetry-proto==1.36.0 (from opentelemetry-exporter-otlp-proto-grpc>=1.2.0->chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading opentelemetry_proto-1.36.0-py3-none-any.whl.metadata (2.3 kB)
+Collecting opentelemetry-instrumentation-asgi==0.57b0 (from opentelemetry-instrumentation-fastapi>=0.41b0->chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading opentelemetry_instrumentation_asgi-0.57b0-py3-none-any.whl.metadata (2.0 kB)
+Collecting opentelemetry-instrumentation==0.57b0 (from opentelemetry-instrumentation-fastapi>=0.41b0->chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading opentelemetry_instrumentation-0.57b0-py3-none-any.whl.metadata (6.7 kB)
+Collecting opentelemetry-semantic-conventions==0.57b0 (from opentelemetry-instrumentation-fastapi>=0.41b0->chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading opentelemetry_semantic_conventions-0.57b0-py3-none-any.whl.metadata (2.4 kB)
+Collecting opentelemetry-util-http==0.57b0 (from opentelemetry-instrumentation-fastapi>=0.41b0->chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading opentelemetry_util_http-0.57b0-py3-none-any.whl.metadata (2.6 kB)
+Collecting wrapt<2.0.0,>=1.0.0 (from opentelemetry-instrumentation==0.57b0->opentelemetry-instrumentation-fastapi>=0.41b0->chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading wrapt-1.17.3-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (6.4 kB)
+Collecting asgiref~=3.0 (from opentelemetry-instrumentation-asgi==0.57b0->opentelemetry-instrumentation-fastapi>=0.41b0->chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading asgiref-3.9.1-py3-none-any.whl.metadata (9.3 kB)
+Collecting annotated-types>=0.6.0 (from pydantic>=1.9->chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading annotated_types-0.7.0-py3-none-any.whl.metadata (15 kB)
+Collecting pydantic-core==2.33.2 (from pydantic>=1.9->chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading pydantic_core-2.33.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.8 kB)
+Collecting typing-inspection>=0.4.0 (from pydantic>=1.9->chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading typing_inspection-0.4.1-py3-none-any.whl.metadata (2.6 kB)
+Collecting greenlet>=1 (from SQLAlchemy<3,>=1.4->langchain<0.0.304,>=0.0.303->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading greenlet-3.2.4-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (4.1 kB)
+Collecting huggingface-hub<1.0,>=0.16.4 (from tokenizers>=0.13.2->chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading huggingface_hub-0.34.4-py3-none-any.whl.metadata (14 kB)
+Collecting shellingham>=1.3.0 (from typer>=0.9.0->chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading shellingham-1.5.4-py2.py3-none-any.whl.metadata (3.5 kB)
+Collecting httptools>=0.6.3 (from uvicorn[standard]>=0.18.3->chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading httptools-0.6.4-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.6 kB)
+Collecting uvloop>=0.15.1 (from uvicorn[standard]>=0.18.3->chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading uvloop-0.21.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.9 kB)
+Collecting watchfiles>=0.13 (from uvicorn[standard]>=0.18.3->chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading watchfiles-1.1.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.9 kB)
+Collecting websockets>=10.4 (from uvicorn[standard]>=0.18.3->chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading websockets-15.0.1-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.8 kB)
+Collecting cachetools<7,>=4.0 (from streamlit<2.0.0,>=1.38.0->-r /mount/src/rag/requirements.txt (line 4))
+  Downloading cachetools-5.5.2-py3-none-any.whl.metadata (5.4 kB)
+Collecting pyasn1-modules>=0.2.1 (from google-auth>=1.0.1->kubernetes>=28.1.0->chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading pyasn1_modules-0.4.2-py3-none-any.whl.metadata (3.5 kB)
+Collecting rsa<5,>=3.1.4 (from google-auth>=1.0.1->kubernetes>=28.1.0->chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading rsa-4.9.1-py3-none-any.whl.metadata (5.6 kB)
+Collecting filelock (from huggingface-hub<1.0,>=0.16.4->tokenizers>=0.13.2->chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading filelock-3.19.1-py3-none-any.whl.metadata (2.1 kB)
+Collecting fsspec>=2023.5.0 (from huggingface-hub<1.0,>=0.16.4->tokenizers>=0.13.2->chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading fsspec-2025.7.0-py3-none-any.whl.metadata (12 kB)
+Collecting hf-xet<2.0.0,>=1.1.3 (from huggingface-hub<1.0,>=0.16.4->tokenizers>=0.13.2->chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading hf_xet-1.1.9-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.7 kB)
+Collecting zipp>=3.20 (from importlib-metadata<8.8.0,>=6.0->opentelemetry-api>=1.2.0->chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading zipp-3.23.0-py3-none-any.whl.metadata (3.6 kB)
+Collecting mypy-extensions>=0.3.0 (from typing-inspect<1,>=0.4.0->dataclasses-json<0.7,>=0.5.7->langchain<0.0.304,>=0.0.303->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading mypy_extensions-1.1.0-py3-none-any.whl.metadata (1.1 kB)
+Collecting humanfriendly>=9.1 (from coloredlogs->onnxruntime>=1.14.1->chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading humanfriendly-10.0-py2.py3-none-any.whl.metadata (9.2 kB)
+Collecting mpmath<1.4,>=1.1.0 (from sympy->onnxruntime>=1.14.1->chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+Collecting pyasn1<0.7.0,>=0.6.1 (from pyasn1-modules>=0.2.1->google-auth>=1.0.1->kubernetes>=28.1.0->chromadb<0.5.0,>=0.4.24->embedchain->-r /mount/src/rag/requirements.txt (line 5))
+  Downloading pyasn1-0.6.1-py3-none-any.whl.metadata (8.4 kB)
+Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Downloading pygments-2.19.2-py3-none-any.whl (1.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 66.9 MB/s eta 0:00:00[2025-08-28 14:47:21.868137] 
+Downloading rich-14.1.0-py3-none-any.whl (243 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 243.4/243.4 kB 184.4 MB/s eta 0:00:00[2025-08-28 14:47:21.881878] 
+Downloading streamlit-1.49.0-py3-none-any.whl (10.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.0/10.0 MB 200.6 MB/s eta 0:00:00[2025-08-28 14:47:21.945158] 
+Downloading embedchain-0.0.92-py3-none-any.whl (117 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 117.0/117.0 kB 140.8 MB/s eta 0:00:00[2025-08-28 14:47:22.029507] 
+Downloading altair-5.5.0-py3-none-any.whl (731 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 731.2/731.2 kB 156.6 MB/s eta 0:00:00[2025-08-28 14:47:22.048087] 
+Downloading blinker-1.9.0-py3-none-any.whl (8.5 kB)
+Downloading chromadb-0.4.24-py3-none-any.whl (525 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 525.5/525.5 kB 147.3 MB/s eta 0:00:00[2025-08-28 14:47:22.077429] 
+Downloading click-8.2.1-py3-none-any.whl (102 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 102.2/102.2 kB 133.1 MB/s eta 0:00:00[2025-08-28 14:47:22.091997] 
+Downloading gitpython-3.1.45-py3-none-any.whl (208 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 208.2/208.2 kB 154.5 MB/s eta 0:00:00[2025-08-28 14:47:22.107384] 
+Downloading langchain-0.0.303-py3-none-any.whl (1.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.7/1.7 MB 124.8 MB/s eta 0:00:00[2025-08-28 14:47:22.136943] 
+Downloading markdown_it_py-4.0.0-py3-none-any.whl (87 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 87.3/87.3 kB 114.7 MB/s eta 0:00:00[2025-08-28 14:47:22.151914] 
+Downloading numpy-1.26.4-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (18.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 18.0/18.0 MB 139.1 MB/s eta 0:00:00
+Downloading openai-1.102.0-py3-none-any.whl (812 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 812.0/812.0 kB 221.3 MB/s eta 0:00:00[2025-08-28 14:47:22.318152] 
+Downloading packaging-25.0-py3-none-any.whl (66 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 66.5/66.5 kB 174.5 MB/s eta 0:00:00[2025-08-28 14:47:22.331693] 
+Downloading pandas-2.3.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.0/12.0 MB 179.2 MB/s eta 0:00:00[2025-08-28 14:47:22.414085] 
+Downloading pillow-11.3.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (6.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.6/6.6 MB 182.4 MB/s eta 0:00:00[2025-08-28 14:47:22.463773] 
+Downloading posthog-3.25.0-py2.py3-none-any.whl (89 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 89.1/89.1 kB 156.5 MB/s eta 0:00:00[2025-08-28 14:47:22.477366] 
+Downloading protobuf-6.32.0-cp39-abi3-manylinux2014_x86_64.whl (322 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 322.0/322.0 kB 151.7 MB/s eta 0:00:00[2025-08-28 14:47:22.493510] 
+Downloading pyarrow-21.0.0-cp312-cp312-manylinux_2_28_x86_64.whl (42.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.8/42.8 MB 177.4 MB/s eta 0:00:00[2025-08-28 14:47:22.766498] 
+Downloading pydeck-0.9.1-py2.py3-none-any.whl (6.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.9/6.9 MB 190.7 MB/s eta 0:00:00[2025-08-28 14:47:22.817630] 
+Downloading python_dotenv-1.1.1-py3-none-any.whl (20 kB)
+Downloading requests-2.32.5-py3-none-any.whl (64 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 64.7/64.7 kB 152.8 MB/s eta 0:00:00[2025-08-28 14:47:22.842422] 
+Downloading schema-0.7.7-py2.py3-none-any.whl (18 kB)
+Downloading tenacity-8.5.0-py3-none-any.whl (28 kB)
+Downloading toml-0.10.2-py2.py3-none-any.whl (16 kB)
+Downloading tornado-6.5.2-cp39-abi3-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (443 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 443.9/443.9 kB 147.8 MB/s eta 0:00:00[2025-08-28 14:47:22.889668] 
+Downloading typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 44.6/44.6 kB 129.2 MB/s eta 0:00:00[2025-08-28 14:47:22.903204] 
+Downloading watchdog-6.0.0-py3-none-manylinux2014_x86_64.whl (79 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 79.1/79.1 kB 144.1 MB/s eta 0:00:00[2025-08-28 14:47:22.916700] 
+Downloading youtube_transcript_api-0.6.3-py3-none-any.whl (622 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 622.3/622.3 kB 204.6 MB/s eta 0:00:00[2025-08-28 14:47:22.934623] 
+Downloading aiohttp-3.12.15-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.7/1.7 MB 180.0 MB/s eta 0:00:00[2025-08-28 14:47:22.958802] 
+Downloading anyio-3.7.1-py3-none-any.whl (80 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 80.9/80.9 kB 137.3 MB/s eta 0:00:00[2025-08-28 14:47:22.972752] 
+Downloading backoff-2.2.1-py3-none-any.whl (15 kB)
+Downloading bcrypt-4.3.0-cp39-abi3-manylinux_2_28_x86_64.whl (284 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 284.5/284.5 kB 200.5 MB/s eta 0:00:00[2025-08-28 14:47:22.997696] 
+Downloading build-1.3.0-py3-none-any.whl (23 kB)
+Downloading certifi-2025.8.3-py3-none-any.whl (161 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 161.2/161.2 kB 130.7 MB/s eta 0:00:00[2025-08-28 14:47:23.024283] 
+Downloading charset_normalizer-3.4.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (151 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 151.8/151.8 kB 109.3 MB/s eta 0:00:00[2025-08-28 14:47:23.040854] 
+Downloading dataclasses_json-0.6.7-py3-none-any.whl (28 kB)
+Downloading defusedxml-0.7.1-py2.py3-none-any.whl (25 kB)
+Downloading distro-1.9.0-py3-none-any.whl (20 kB)
+Downloading fastapi-0.116.1-py3-none-any.whl (95 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 95.6/95.6 kB 148.7 MB/s eta 0:00:00[2025-08-28 14:47:23.086434] 
+Downloading gitdb-4.0.12-py3-none-any.whl (62 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.8/62.8 kB 165.2 MB/s eta 0:00:00[2025-08-28 14:47:23.100073] 
+Downloading grpcio-1.74.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (6.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.2/6.2 MB 134.5 MB/s eta 0:00:00[2025-08-28 14:47:23.162313] 
+Downloading httpx-0.28.1-py3-none-any.whl (73 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 73.5/73.5 kB 204.8 MB/s eta 0:00:00[2025-08-28 14:47:23.174393] 
+Downloading httpcore-1.0.9-py3-none-any.whl (78 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 78.8/78.8 kB 163.5 MB/s eta 0:00:00[2025-08-28 14:47:23.189464] 
+Downloading idna-3.10-py3-none-any.whl (70 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 70.4/70.4 kB 154.1 MB/s eta 0:00:00[2025-08-28 14:47:23.204194] 
+Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 134.9/134.9 kB 129.3 MB/s eta 0:00:00[2025-08-28 14:47:23.220396] 
+Downloading jiter-0.10.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (352 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 352.0/352.0 kB 129.6 MB/s eta 0:00:00[2025-08-28 14:47:23.239438] 
+Downloading jsonpatch-1.33-py2.py3-none-any.whl (12 kB)
+Downloading jsonschema-4.25.1-py3-none-any.whl (90 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 90.0/90.0 kB 136.5 MB/s eta 0:00:00[2025-08-28 14:47:23.264501] 
+Downloading kubernetes-33.1.0-py2.py3-none-any.whl (1.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.9/1.9 MB 138.3 MB/s eta 0:00:00[2025-08-28 14:47:23.292714] 
+Downloading langsmith-0.0.92-py3-none-any.whl (56 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 56.5/56.5 kB 127.2 MB/s eta 0:00:00[2025-08-28 14:47:23.308049] 
+Downloading mmh3-5.2.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (103 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 103.3/103.3 kB 122.7 MB/s eta 0:00:00[2025-08-28 14:47:23.322747] 
+Downloading monotonic-1.6-py2.py3-none-any.whl (8.2 kB)
+Downloading narwhals-2.2.0-py3-none-any.whl (401 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 401.0/401.0 kB 130.9 MB/s eta 0:00:00[2025-08-28 14:47:23.352445] 
+Downloading numexpr-2.11.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (403 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 403.4/403.4 kB 138.3 MB/s eta 0:00:00[2025-08-28 14:47:23.370862] 
+Downloading onnxruntime-1.22.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.5/16.5 MB 137.5 MB/s eta 0:00:00[2025-08-28 14:47:23.512514] 
+Downloading opentelemetry_api-1.36.0-py3-none-any.whl (65 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 65.6/65.6 kB 167.9 MB/s eta 0:00:00[2025-08-28 14:47:23.525260] 
+Downloading opentelemetry_exporter_otlp_proto_grpc-1.36.0-py3-none-any.whl (18 kB)
+Downloading opentelemetry_exporter_otlp_proto_common-1.36.0-py3-none-any.whl (18 kB)
+Downloading opentelemetry_proto-1.36.0-py3-none-any.whl (72 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 72.5/72.5 kB 156.7 MB/s eta 0:00:00[2025-08-28 14:47:23.559497] 
+Downloading opentelemetry_instrumentation_fastapi-0.57b0-py3-none-any.whl (12 kB)
+Downloading opentelemetry_instrumentation-0.57b0-py3-none-any.whl (32 kB)
+Downloading opentelemetry_instrumentation_asgi-0.57b0-py3-none-any.whl (16 kB)
+Downloading opentelemetry_semantic_conventions-0.57b0-py3-none-any.whl (201 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 201.6/201.6 kB 137.5 MB/s eta 0:00:00[2025-08-28 14:47:23.603920] 
+Downloading opentelemetry_util_http-0.57b0-py3-none-any.whl (7.6 kB)
+Downloading opentelemetry_sdk-1.36.0-py3-none-any.whl (119 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 120.0/120.0 kB 160.0 MB/s eta 0:00:00[2025-08-28 14:47:23.627368] 
+Downloading orjson-3.11.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (132 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.9/132.9 kB 201.6 MB/s eta 0:00:00[2025-08-28 14:47:23.640636] 
+Downloading overrides-7.7.0-py3-none-any.whl (17 kB)
+Downloading pulsar_client-3.8.0-cp312-cp312-manylinux_2_28_x86_64.whl (6.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.6/6.6 MB 178.9 MB/s eta 0:00:00[2025-08-28 14:47:23.704272] 
+Downloading pydantic-2.11.7-py3-none-any.whl (444 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 444.8/444.8 kB 192.2 MB/s eta 0:00:00[2025-08-28 14:47:23.719880] 
+Downloading pydantic_core-2.33.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 185.8 MB/s eta 0:00:00[2025-08-28 14:47:23.743461] 
+Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 229.9/229.9 kB 206.1 MB/s eta 0:00:00[2025-08-28 14:47:23.758814] 
+Downloading pytz-2025.2-py2.py3-none-any.whl (509 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 509.2/509.2 kB 149.8 MB/s eta 0:00:00[2025-08-28 14:47:23.775520] 
+Downloading PyYAML-6.0.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (767 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 767.5/767.5 kB 139.2 MB/s eta 0:00:00[2025-08-28 14:47:23.796045] 
+Downloading regex-2025.7.34-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (801 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 801.9/801.9 kB 123.3 MB/s eta 0:00:00[2025-08-28 14:47:23.818808] 
+Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+Downloading sniffio-1.3.1-py3-none-any.whl (10 kB)
+Downloading sqlalchemy-2.0.43-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 170.9 MB/s eta 0:00:00[2025-08-28 14:47:23.874392] 
+Downloading tokenizers-0.21.4-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.1/3.1 MB 165.0 MB/s eta 0:00:00[2025-08-28 14:47:23.906630] 
+Downloading tqdm-4.67.1-py3-none-any.whl (78 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 78.5/78.5 kB 127.7 MB/s eta 0:00:00[2025-08-28 14:47:23.920626] 
+Downloading typer-0.16.1-py3-none-any.whl (46 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 46.4/46.4 kB 146.1 MB/s eta 0:00:00[2025-08-28 14:47:23.934617] 
+Downloading tzdata-2025.2-py2.py3-none-any.whl (347 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 347.8/347.8 kB 193.6 MB/s eta 0:00:00[2025-08-28 14:47:23.949847] 
+Downloading urllib3-2.5.0-py3-none-any.whl (129 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 129.8/129.8 kB 198.9 MB/s eta 0:00:00[2025-08-28 14:47:23.963495] 
+Downloading uvicorn-0.35.0-py3-none-any.whl (66 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 66.4/66.4 kB 192.4 MB/s eta 0:00:00[2025-08-28 14:47:23.976645] 
+Downloading importlib_resources-6.5.2-py3-none-any.whl (37 kB)
+Downloading aiohappyeyeballs-2.6.1-py3-none-any.whl (15 kB)
+Downloading aiosignal-1.4.0-py3-none-any.whl (7.5 kB)
+Downloading annotated_types-0.7.0-py3-none-any.whl (13 kB)
+Downloading attrs-25.3.0-py3-none-any.whl (63 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 63.8/63.8 kB 206.4 MB/s eta 0:00:00[2025-08-28 14:47:24.029384] 
+Downloading durationpy-0.10-py3-none-any.whl (3.9 kB)
+Downloading frozenlist-1.7.0-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (241 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 241.8/241.8 kB 124.7 MB/s eta 0:00:00[2025-08-28 14:47:24.056378] 
+Downloading google_auth-2.40.3-py2.py3-none-any.whl (216 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 216.1/216.1 kB 128.3 MB/s eta 0:00:00[2025-08-28 14:47:24.074748] 
+Downloading cachetools-5.5.2-py3-none-any.whl (10 kB)
+Downloading googleapis_common_protos-1.70.0-py3-none-any.whl (294 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 294.5/294.5 kB 172.6 MB/s eta 0:00:00[2025-08-28 14:47:24.100206] 
+Downloading greenlet-3.2.4-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (607 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 607.6/607.6 kB 169.5 MB/s eta 0:00:00[2025-08-28 14:47:24.116958] 
+Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+Downloading httptools-0.6.4-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (510 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 510.8/510.8 kB 180.5 MB/s eta 0:00:00[2025-08-28 14:47:24.142885] 
+Downloading huggingface_hub-0.34.4-py3-none-any.whl (561 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 561.5/561.5 kB 182.9 MB/s eta 0:00:00[2025-08-28 14:47:24.158517] 
+Downloading importlib_metadata-8.7.0-py3-none-any.whl (27 kB)
+Downloading jsonpointer-3.0.0-py2.py3-none-any.whl (7.6 kB)
+Downloading jsonschema_specifications-2025.4.1-py3-none-any.whl (18 kB)
+Downloading MarkupSafe-3.0.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (23 kB)
+Downloading marshmallow-3.26.1-py3-none-any.whl (50 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 50.9/50.9 kB 122.8 MB/s eta 0:00:00[2025-08-28 14:47:24.213577] 
+Downloading multidict-6.6.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (256 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 256.1/256.1 kB 151.2 MB/s eta 0:00:00[2025-08-28 14:47:24.229757] 
+Downloading oauthlib-3.3.1-py3-none-any.whl (160 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 160.1/160.1 kB 169.6 MB/s eta 0:00:00[2025-08-28 14:47:24.243861] 
+Downloading propcache-0.3.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (224 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 224.4/224.4 kB 204.9 MB/s eta 0:00:00[2025-08-28 14:47:24.256963] 
+Downloading referencing-0.36.2-py3-none-any.whl (26 kB)
+Downloading rpds_py-0.27.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (386 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 386.9/386.9 kB 128.6 MB/s eta 0:00:00[2025-08-28 14:47:24.284931] 
+Downloading shellingham-1.5.4-py2.py3-none-any.whl (9.8 kB)
+Downloading smmap-5.0.2-py3-none-any.whl (24 kB)
+Downloading starlette-0.47.3-py3-none-any.whl (72 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 73.0/73.0 kB 115.8 MB/s eta 0:00:00[2025-08-28 14:47:24.322898] 
+Downloading typing_inspect-0.9.0-py3-none-any.whl (8.8 kB)
+Downloading typing_inspection-0.4.1-py3-none-any.whl (14 kB)
+Downloading uvloop-0.21.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (4.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.7/4.7 MB 121.0 MB/s eta 0:00:00[2025-08-28 14:47:24.397874] 
+Downloading watchfiles-1.1.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (452 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 452.2/452.2 kB 130.2 MB/s eta 0:00:00[2025-08-28 14:47:24.417403] 
+Downloading websocket_client-1.8.0-py3-none-any.whl (58 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 58.8/58.8 kB 112.8 MB/s eta 0:00:00[2025-08-28 14:47:24.432679] 
+Downloading websockets-15.0.1-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (182 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 182.5/182.5 kB 160.8 MB/s eta 0:00:00[2025-08-28 14:47:24.449193] 
+Downloading yarl-1.20.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (355 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 355.6/355.6 kB 164.3 MB/s eta 0:00:00[2025-08-28 14:47:24.466728] 
+Downloading coloredlogs-15.0.1-py2.py3-none-any.whl (46 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 46.0/46.0 kB 181.1 MB/s eta 0:00:00[2025-08-28 14:47:24.480398] 
+Downloading flatbuffers-25.2.10-py2.py3-none-any.whl (30 kB)
+Downloading pyproject_hooks-1.2.0-py3-none-any.whl (10 kB)
+Downloading requests_oauthlib-2.0.0-py2.py3-none-any.whl (24 kB)
+Downloading sympy-1.14.0-py3-none-any.whl (6.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.3/6.3 MB 86.2 MB/s eta 0:00:00[2025-08-28 14:47:24.608574] 
+Downloading asgiref-3.9.1-py3-none-any.whl (23 kB)
+Downloading fsspec-2025.7.0-py3-none-any.whl (199 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 199.6/199.6 kB 21.3 MB/s eta 0:00:00[2025-08-28 14:47:24.657338] 
+Downloading hf_xet-1.1.9-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.2/3.2 MB 138.3 MB/s eta 0:00:00[2025-08-28 14:47:24.699611] 
+Downloading humanfriendly-10.0-py2.py3-none-any.whl (86 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 86.8/86.8 kB 123.0 MB/s eta 0:00:00[2025-08-28 14:47:24.725383] 
+Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 536.2/536.2 kB 167.9 MB/s eta 0:00:00[2025-08-28 14:47:24.747039] 
+Downloading mypy_extensions-1.1.0-py3-none-any.whl (5.0 kB)
+Downloading pyasn1_modules-0.4.2-py3-none-any.whl (181 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 181.3/181.3 kB 132.3 MB/s eta 0:00:00
+Downloading rsa-4.9.1-py3-none-any.whl (34 kB)
+Downloading wrapt-1.17.3-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (88 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 88.0/88.0 kB 146.1 MB/s eta 0:00:00[2025-08-28 14:47:24.821199] 
+Downloading zipp-3.23.0-py3-none-any.whl (10 kB)
+Downloading filelock-3.19.1-py3-none-any.whl (15 kB)
+Downloading pyasn1-0.6.1-py3-none-any.whl (83 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 83.1/83.1 kB 136.5 MB/s eta 0:00:00[2025-08-28 14:47:24.875723] 
+Building wheels for collected packages: chroma-hnswlib, tiktoken, pypika
+  Building wheel for chroma-hnswlib (pyproject.toml): started
+  Building wheel for chroma-hnswlib (pyproject.toml): finished with status 'done'
+  Created wheel for chroma-hnswlib: filename=chroma_hnswlib-0.7.3-cp312-cp312-linux_x86_64.whl size=2547043 sha256=fd5c5edde0a1d324473d8fd56ca20763eb23acbd4e0af9bd877046176538e3ed
+  Stored in directory: /tmp/pip-ephem-wheel-cache-2wyvgwat/wheels/6d/14/b5/68c4f2e056600c0348a94efba92dc975686ab72b714e0ca3d6
+  Building wheel for tiktoken (pyproject.toml): started
+  Building wheel for tiktoken (pyproject.toml): finished with status 'error'
+  error: subprocess-exited-with-error
+  
+  × Building wheel for tiktoken (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> [49 lines of output]
+      /tmp/pip-build-env-n5dxdkvy/overlay/lib/python3.12/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated
+      !!
+      
+              ********************************************************************************
+              Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+      
+              By 2026-Feb-18, you need to update your project and remove deprecated calls
+              or your builds will no longer be supported.
+      
+              See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+              ********************************************************************************
+      
+      !!
+        corresp(dist, value, root_dir)
+      running bdist_wheel
+      running build
+      running build_py
+      creating build/lib.linux-x86_64-cpython-312/tiktoken
+      copying tiktoken/model.py -> build/lib.linux-x86_64-cpython-312/tiktoken
+      copying tiktoken/registry.py -> build/lib.linux-x86_64-cpython-312/tiktoken
+      copying tiktoken/core.py -> build/lib.linux-x86_64-cpython-312/tiktoken
+      copying tiktoken/load.py -> build/lib.linux-x86_64-cpython-312/tiktoken
+      copying tiktoken/__init__.py -> build/lib.linux-x86_64-cpython-312/tiktoken
+      creating build/lib.linux-x86_64-cpython-312/tiktoken_ext
+      copying tiktoken_ext/openai_public.py -> build/lib.linux-x86_64-cpython-312/tiktoken_ext
+      running egg_info
+      writing tiktoken.egg-info/PKG-INFO
+      writing dependency_links to tiktoken.egg-info/dependency_links.txt
+      writing requirements to tiktoken.egg-info/requires.txt
+      writing top-level names to tiktoken.egg-info/top_level.txt
+      reading manifest file 'tiktoken.egg-info/SOURCES.txt'
+      reading manifest template 'MANIFEST.in'
+      warning: no files found matching 'Makefile'
+      adding license file 'LICENSE'
+      writing manifest file 'tiktoken.egg-info/SOURCES.txt'
+      copying tiktoken/py.typed -> build/lib.linux-x86_64-cpython-312/tiktoken
+      running build_ext
+      running build_rust
+      error: can't find Rust compiler
+      
+      If you are using an outdated pip version, it is possible a prebuilt wheel is available for this package but pip is not able to install from it. Installing from the wheel would avoid the need for a Rust compiler.
+      
+      To update pip, run:
+      
+          pip install --upgrade pip
+      
+      and then retry package installation.
+      
+      If you did intend to build this package from source, try installing a Rust compiler from your system package manager and ensure it is on the PATH during installation. Alternatively, rustup (available at https://rustup.rs) is the recommended way to download and update the Rust compiler toolchain.
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+  ERROR: Failed building wheel for tiktoken
+  Building wheel for pypika (pyproject.toml): started
+  Building wheel for pypika (pyproject.toml): finished with status 'done'
+  Created wheel for pypika: filename=pypika-0.48.9-py2.py3-none-any.whl size=53803 sha256=f990163c57dacdb637a0dbca16b7cfd26be8c13982e5c69673c9ac7db2dc66bf
+  Stored in directory: /tmp/pip-ephem-wheel-cache-2wyvgwat/wheels/d5/3d/69/8d68d249cd3de2584f226e27fd431d6344f7d70fd856ebd01b
+Successfully built chroma-hnswlib pypika
+Failed to build tiktoken
+ERROR: Could not build wheels for tiktoken, which is required to install pyproject.toml-based projects
+
+[notice] A new release of pip is available: 24.0 -> 25.2
+[notice] To update, run: pip install --upgrade pip
+Checking if Streamlit is installed
+Installing rich for an improved exception logging
+Using standard pip install.
+Collecting rich>=10.14.0
+  Downloading rich-14.1.0-py3-none-any.whl.metadata (18 kB)
+Collecting markdown-it-py>=2.2.0 (from rich>=10.14.0)
+  Downloading markdown_it_py-4.0.0-py3-none-any.whl.metadata (7.3 kB)
+Collecting pygments<3.0.0,>=2.13.0 (from rich>=10.14.0)
+  Downloading pygments-2.19.2-py3-none-any.whl.metadata (2.5 kB)
+Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich>=10.14.0)
+  Downloading mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+Downloading rich-14.1.0-py3-none-any.whl (243 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 243.4/243.4 kB 15.0 MB/s eta 0:00:00[2025-08-28 14:47:57.242712] 
+Downloading markdown_it_py-4.0.0-py3-none-any.whl (87 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 87.3/87.3 kB 136.3 MB/s eta 0:00:00[2025-08-28 14:47:57.257883] 
+Downloading pygments-2.19.2-py3-none-any.whl (1.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 85.2 MB/s eta 0:00:00[2025-08-28 14:47:57.286786] 
+Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Installing collected packages: pygments, mdurl, markdown-it-py, rich
+  Attempting uninstall: pygments
+    Found existing installation: Pygments 2.19.2
+    Uninstalling Pygments-2.19.2:
+      Successfully uninstalled Pygments-2.19.2
+  Attempting uninstall: mdurl
+    Found existing installation: mdurl 0.1.2
+    Uninstalling mdurl-0.1.2:
+      Successfully uninstalled mdurl-0.1.2
+  Attempting uninstall: markdown-it-py
+    Found existing installation: markdown-it-py 4.0.0
+    Uninstalling markdown-it-py-4.0.0:
+      Successfully uninstalled markdown-it-py-4.0.0
+  Attempting uninstall: rich
+    Found existing installation: rich 14.1.0
+    Uninstalling rich-14.1.0:
+      Successfully uninstalled rich-14.1.0
+Successfully installed markdown-it-py-4.0.0 mdurl-0.1.2 pygments-2.19.2 rich-14.1.0
+
+[notice] A new release of pip is available: 24.0 -> 25.2
+[notice] To update, run: pip install --upgrade pip
+
+────────────────────────────────────────────────────────────────────────────────────────
+
+[14:47:59] ❗️ installer returned a non-zero exit code
+[14:47:59] ❗️ Error during processing dependencies! Please fix the error and push an update, or try restarting the app.
