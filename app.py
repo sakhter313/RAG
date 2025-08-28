@@ -3,7 +3,7 @@ import tempfile
 import streamlit as st
 from embedchain import App
 
-# Function to get Embedchain app with Groq config
+# Function to get Embedchain app with Groq config and FAISS backend (no SQLite errors)
 @st.cache_resource
 def get_embedchain_app():
     try:
@@ -16,6 +16,10 @@ def get_embedchain_app():
                     "api_key": api_key,
                     "stream": True  # Enable streaming for responses
                 }
+            },
+            "vectordb": {
+                "provider": "faiss",  # Use FAISS instead of ChromaDB
+                "config": {}          # Default in-memory, or can pass path if needed
             }
         }
         return App.from_config(config=config)
@@ -39,7 +43,7 @@ app = get_embedchain_app()
 # File uploader for documents
 uploaded_files = st.file_uploader(
     "Upload Documents",
-    type=["pdf", "docx", "txt", "csv", "json", "md", "mdx"],  # Common supported types; Embedchain auto-detects
+    type=["pdf", "docx", "txt", "csv", "json", "md", "mdx"],
     accept_multiple_files=True
 )
 
