@@ -3,7 +3,7 @@ import tempfile
 import streamlit as st
 from embedchain import App
 from embedchain.config import AppConfig
-from embedchain.vectordb.faiss import FaissDB  # Explicitly import FAISS
+from embedchain.vectordb.faiss import FaissDB
 import logging
 import sys
 
@@ -11,10 +11,11 @@ import sys
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# Prevent ChromaDB from being imported by overriding the module
+# Prevent ChromaDB from interfering by overriding the module
 if "chromadb" in sys.modules:
     del sys.modules["chromadb"]
 os.environ["EMBEDCHAIN_DB_DIR"] = "/tmp/embedchain_db"
+os.environ["EMBEDCHAIN_VECTOR_DB"] = "faiss"  # Force FAISS as the vector DB
 
 @st.cache_resource
 def get_embedchain_app():
@@ -33,11 +34,11 @@ def get_embedchain_app():
                 "provider": "faiss",
                 "config": {
                     "index_dir": "/tmp/embedchain_db",
-                    "dimension": 1536,  # Adjust based on your embedding model
+                    "dimension": 1536,
                 },
             },
             embedder={
-                "provider": "openai",  # Ensure compatibility with FAISS
+                "provider": "openai",
                 "config": {
                     "model": "text-embedding-ada-002",
                 },
@@ -45,9 +46,8 @@ def get_embedchain_app():
         )
         logger.info("Initializing Embedchain app with FAISS backend")
         app = App(config=config)
-        # Verify that FAISS is being used
         if not isinstance(app.vectordb, FaissDB):
-            raise RuntimeError("FAISS vector database not initialized correctly.")
+            raise RuntimeError("FAISS vector database not initialized correctly. Check if ChromaDB is interfering.")
         return app
     except KeyError as e:
         st.error("GROQ_API_KEY not found in Streamlit secrets. Please set it in the Streamlit Cloud dashboard.")
@@ -65,10 +65,8 @@ with st.sidebar:
     st.markdown("[Get a Groq API Key](https://console.groq.com/keys)")
     st.markdown("Set `GROQ_API_KEY` in Streamlit secrets to use this app.")
 
-# Initialize app
 app = get_embedchain_app()
 
-# File uploader
 uploaded_files = st.file_uploader(
     "Upload Documents",
     type=["pdf", "docx", "txt", "csv", "json", "md", "mdx"],
@@ -92,7 +90,6 @@ if uploaded_files and st.button("Ingest Documents"):
                 st.error(f"Failed to ingest {f.name}: {e}")
                 logger.error(f"Ingestion error for {f.name}: {e}")
 
-# Chat interface
 if "messages" not in st.session_state:
     st.session_state.messages = [
         {"role": "assistant", "content": "Upload documents and ask me anything about them."}
