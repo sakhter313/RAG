@@ -22,7 +22,6 @@ except ImportError as e:
     st.stop()
 
 from embedchain import App
-from embedchain.config import AppConfig
 
 # Ensure temporary directory for FAISS index
 os.environ["EMBEDCHAIN_DB_DIR"] = "/tmp/embedchain_db"
@@ -32,37 +31,36 @@ os.environ["EMBEDCHAIN_VECTOR_DB"] = "faiss"  # Force FAISS
 def get_embedchain_app():
     try:
         api_key = st.secrets["GROQ_API_KEY"]
-        config = AppConfig(
-            llm={
-                "provider": "groq",
-                "config": {
-                    "model": "mixtral-8x7b-32768",
-                    "api_key": api_key,
-                    "stream": True,
-                },
+        # Flatten the config into keyword arguments
+        config = {
+            "llm_provider": "groq",
+            "llm_config": {
+                "model": "mixtral-8x7b-32768",
+                "api_key": api_key,
+                "stream": True,
             },
-            vectordb={
-                "provider": "faiss",
-                "config": {
-                    "index_dir": "/tmp/embedchain_db",
-                    "dimension": 1536,  # Adjust if needed for your embedder
-                },
+            "vectordb_provider": "faiss",
+            "vectordb_config": {
+                "index_dir": "/tmp/embedchain_db",
+                "dimension": 1536,
             },
-            embedder={
-                "provider": "openai",
-                "config": {
-                    "model": "text-embedding-ada-002",
-                },
+            "embedder_provider": "openai",
+            "embedder_config": {
+                "model": "text-embedding-ada-002",
             },
-        )
+        }
         logger.info("Initializing Embedchain app with FAISS backend")
-        app = App(config=config)
+        app = App(**config)  # Pass as keyword arguments
         if not isinstance(app.vectordb, FAISS):
             raise RuntimeError("FAISS vector database not initialized correctly. Check configuration.")
         return app
     except KeyError as e:
         st.error("GROQ_API_KEY not found in Streamlit secrets. Please set it in the Streamlit Cloud dashboard.")
         logger.error(f"KeyError: {e}")
+        st.stop()
+    except TypeError as e:
+        st.error(f"Failed to initialize app: {e}. Check config parameters.")
+        logger.error(f"Initialization error: {e}")
         st.stop()
     except Exception as e:
         st.error(f"Failed to initialize app: {e}")
