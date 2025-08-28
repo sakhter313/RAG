@@ -30,11 +30,14 @@ os.environ["EMBEDCHAIN_VECTOR_DB"] = "faiss"  # Force FAISS
 @st.cache_resource
 def get_embedchain_app():
     try:
+        # Log available secrets for debugging
+        logger.info(f"Available secrets: {st.secrets}")
         api_key = st.secrets["GROQ_API_KEY"]
-        # Initialize App with minimal config
-        logger.info("Initializing Embedchain app")
-        app = App()  # Basic initialization without config args
-
+        logger.info("GROQ_API_KEY retrieved successfully")
+        
+        # Initialize App
+        app = App()
+        
         # Configure LLM
         app.llm = {
             "provider": "groq",
@@ -71,7 +74,7 @@ def get_embedchain_app():
         return app
     except KeyError as e:
         st.error("GROQ_API_KEY not found in Streamlit secrets. Please set it in the Streamlit Cloud dashboard.")
-        logger.error(f"KeyError: {e}")
+        logger.error(f"KeyError: {e}. Available secrets: {st.secrets}")
         st.stop()
     except TypeError as e:
         st.error(f"Failed to initialize app: {e}. Check config parameters.")
